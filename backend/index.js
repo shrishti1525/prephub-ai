@@ -1,0 +1,36 @@
+const User = require("./models/User");
+const express = require("express");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+require("dotenv").config();
+const mongoURI = process.env.MONGO_URI;
+
+const app = express();
+app.use(express.json());
+
+async function connectDB() {
+    try {
+        await mongoose.connect(mongoURI);
+        console.log("MongoDB connected successfully");
+    } catch (error) {
+        console.log("MongoDB connection error:", error);
+    }
+}
+connectDB();
+
+app.post("/api/signup", async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10); 
+        const newUser = await User.create({ 
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        });
+        res.send(newUser);
+    } catch (error) {
+        res.status(400).send({ message: "Signup failed", error: error.message });
+    }
+});
+app.listen(5000, () => {
+    console.log("Server started on port 5000");
+});
