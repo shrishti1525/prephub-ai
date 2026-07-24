@@ -27,8 +27,23 @@ app.post("/api/signup", async (req, res) => {
             password: hashedPassword
         });
         res.send(newUser);
-    } catch (error) {
+    } catch (error) { 
         res.status(400).send({ message: "Signup failed", error: error.message });
+    }
+});
+     app.post("/api/login", async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(400).send({ message: "User not found" });
+        }
+        const isMatch = await bcrypt.compare(req.body.password, user.password);
+        if (!isMatch) {
+            return res.status(400).send({ message: "Incorrect password" });
+        }
+        res.send({ message: "Login successful", user: user });
+        } catch (error) {
+        res.status(400).send({ message: "Login failed", error: error.message });
     }
 });
 app.listen(5000, () => {
