@@ -2,6 +2,7 @@ const User = require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const mongoURI = process.env.MONGO_URI;
 
@@ -41,7 +42,8 @@ app.post("/api/signup", async (req, res) => {
         if (!isMatch) {
             return res.status(400).send({ message: "Incorrect password" });
         }
-        res.send({ message: "Login successful", user: user });
+       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        res.send({ message: "Login successful", token: token, user: user });
         } catch (error) {
         res.status(400).send({ message: "Login failed", error: error.message });
     }
