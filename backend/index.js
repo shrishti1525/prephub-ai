@@ -48,6 +48,23 @@ app.post("/api/signup", async (req, res) => {
         res.status(400).send({ message: "Login failed", error: error.message });
     }
 });
+function verifyToken(req, res, next) {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).send({ message: "No token provided" });
+    }
+    try {
+        jwt.verify(token, process.env.JWT_SECRET);
+        next();
+    } catch (error) {
+        res.status(401).send({ message: "Invalid token" });
+    }
+}
+app.get("/api/dashboard", verifyToken, (req, res) => {
+    res.send({ message: "Welcome to your dashboard!" });
+});
+
 app.listen(5000, () => {
     console.log("Server started on port 5000");
 });
+   
