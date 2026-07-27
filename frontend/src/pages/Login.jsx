@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-function Login() {
+function Login({ setToken }) {
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [message, setMessage] = useState('')
 
@@ -13,6 +13,7 @@ function Login() {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:5000/api/login', formData)
+      setToken(response.data.token)
       setMessage('Login successful!')
       console.log(response.data)
     } catch (error) {
