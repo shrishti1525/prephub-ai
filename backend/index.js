@@ -1,4 +1,6 @@
 const User = require("./models/User");
+const Problem = require("./models/Problem");
+const Note = require("./models/Note");
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -56,7 +58,8 @@ function verifyToken(req, res, next) {
         return res.status(401).send({ message: "No token provided" });
     }
     try {
-        jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.userId = decoded.userId;
         next();
     } catch (error) {
         res.status(401).send({ message: "Invalid token" });
@@ -64,6 +67,51 @@ function verifyToken(req, res, next) {
 }
 app.get("/api/dashboard", verifyToken, (req, res) => {
     res.send({ message: "Welcome to your dashboard!" });
+});
+
+app.post("/api/problems", verifyToken, async (req, res) => {
+    try {
+        const newProblem = await Problem.create({
+            title: req.body.title,
+            topic: req.body.topic,
+            difficulty: req.body.difficulty,
+            userId: req.userId
+        });
+        res.send(newProblem);
+    } catch (error) {
+        res.status(400).send({ message: "Failed to add problem", error: error.message });
+    }
+});
+
+app.post("/api/notes", verifyToken, async (req, res) => {
+    try {
+        const newNote = await Note.create({
+            title: req.body.title,
+            content: req.body.content,
+            userId: req.userId
+        });
+        res.send(newNote);
+    } catch (error) {
+        res.status(400).send({ message: "Failed to add note", error: error.message });
+    }
+});
+
+app.get("/api/notes", verifyToken, async (req, res) => {
+    try {
+        const notes = await Note.find({ userId: req.userId });
+        res.send(notes);
+    } catch (error) {
+        res.status(400).send({ message: "Failed to fetch notes", error: error.message });
+    }
+});
+
+app.get("/api/problems", verifyToken, async (req, res) => {
+    try {
+        const problems = await Problem.find({ userId: req.userId });
+        res.send(problems);
+    } catch (error) {
+        res.status(400).send({ message: "Failed to fetch problems", error: error.message });
+    }
 });
 
 app.listen(5000, () => {
