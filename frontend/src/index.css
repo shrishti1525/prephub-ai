@@ -985,3 +985,15 @@ body {
   border-color: #0284c7;
   background-color: rgba(2, 132, 199, 0.08);
 }
+
+/* Google Sign-in Button */
+.google-btn:hover {
+  background-color: var(--bg-card-hover) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(66, 133, 244, 0.15) !important;
+}
+.google-btn:active {
+  transform: translateY(0);
+}
+

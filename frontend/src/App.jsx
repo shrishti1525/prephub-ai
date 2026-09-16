@@ -12,6 +12,7 @@ import ResumeManager from './pages/ResumeManager.jsx';
 import InterviewExperiences from './pages/InterviewExperiences.jsx';
 import Notes from './pages/Notes.jsx';
 import AiCoach from './pages/AiCoach.jsx';
+import About from './pages/About.jsx';
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('prephub_theme') || 'dark');
@@ -53,7 +54,8 @@ function App() {
     '/aptitude': 'Aptitude Practice & Tests',
     '/resume': 'Resume & AI ATS Scanner',
     '/experiences': 'Interview Experience Archive',
-    '/notes': 'Placement Revision Notes'
+    '/notes': 'Placement Revision Notes',
+    '/about': 'About PrepHub AI'
   };
   const currentTitle = routeTitles[location.pathname] || 'PrepHub AI';
 
@@ -95,6 +97,7 @@ function App() {
               <span style={{ fontSize: '12px' }}>{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
             <Link to="/" className="btn btn-secondary btn-sm">Home</Link>
+            <Link to="/about" className="btn btn-secondary btn-sm">About</Link>
             <Link to="/login" className="btn btn-secondary btn-sm">Sign In</Link>
             <Link to="/signup" className="btn btn-primary btn-sm">Get Started</Link>
           </nav>
@@ -103,6 +106,7 @@ function App() {
         <main style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home token={token} />} />
+            <Route path="/about" element={<About token={token} />} />
             <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
             <Route path="/signup" element={<Signup setToken={setToken} setUser={setUser} />} />
             <Route path="*" element={<Navigate to="/login" replace />} />
@@ -137,6 +141,9 @@ function App() {
 
             <Link to="/" style={{ fontSize: '13px', color: 'var(--text-secondary)', textDecoration: 'none' }}>
               Home Overview
+            </Link>
+            <Link to="/about" style={{ fontSize: '13px', color: 'var(--text-secondary)', textDecoration: 'none' }}>
+              About
             </Link>
             <span style={{ color: 'var(--border-color)' }}>|</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -176,6 +183,7 @@ function App() {
               element={<InterviewExperiences token={token} currentUser={user} />}
             />
             <Route path="/notes" element={<Notes token={token} />} />
+            <Route path="/about" element={<About token={token} />} />
             <Route path="/login" element={<Navigate to="/dashboard" replace />} />
             <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />

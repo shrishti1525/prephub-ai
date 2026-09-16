@@ -76,6 +76,63 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// POST /api/auth/google
+router.post("/google", async (req, res) => {
+  try {
+    const { name, email, googleId, avatar } = req.body;
+    if (!email) {
+      return res.status(400).json({ message: "Google account email is required" });
+    }
+
+    const normalizedEmail = email.toLowerCase().trim();
+    let user = await User.findOne({ email: normalizedEmail });
+
+    if (user) {
+      let updated = false;
+      if (googleId && !user.googleId) {
+        user.googleId = googleId;
+        updated = true;
+      }
+      if (avatar && !user.avatar) {
+        user.avatar = avatar;
+        updated = true;
+      }
+      if (updated) {
+        await user.save();
+      }
+    } else {
+      const displayName = name && name.trim() ? name.trim() : normalizedEmail.split('@')[0];
+      user = await User.create({
+        name: displayName,
+        email: normalizedEmail,
+        googleId: googleId || `google_${Date.now()}`,
+        avatar: avatar || "",
+        authProvider: "google"
+      });
+    }
+
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_SECRET || "prephub_super_secret_key_2026",
+      { expiresIn: "7d" }
+    );
+
+    res.json({
+      message: "Google login successful",
+      token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+        authProvider: user.authProvider
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Google authentication failed", error: error.message });
+  }
+});
+
 // GET /api/auth/me
 router.get("/me", verifyToken, async (req, res) => {
   try {

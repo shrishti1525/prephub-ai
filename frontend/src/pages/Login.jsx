@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import GoogleAuthButton from '../components/GoogleAuthButton.jsx';
 
 function Login({ setToken, setUser }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -40,7 +41,7 @@ function Login({ setToken, setUser }) {
   return (
     <div style={{ maxWidth: '440px', margin: '80px auto', padding: '0 20px' }}>
       <div className="card" style={{ padding: '36px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <div className="logo-badge" style={{ margin: '0 auto 12px auto' }}>P</div>
           <h2 style={{ fontSize: '24px', color: 'var(--text-primary)', margin: 0 }}>Sign in to PrepHub AI</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
@@ -49,6 +50,27 @@ function Login({ setToken, setUser }) {
         </div>
 
         {message && <div className="alert alert-error">{message}</div>}
+
+        {/* Google Authentication Option */}
+        <div style={{ marginBottom: '18px' }}>
+          <GoogleAuthButton
+            text="Continue with Google"
+            onSuccess={({ token, user }) => {
+              setToken(token);
+              if (setUser) setUser(user);
+              navigate('/dashboard');
+            }}
+            onError={(err) => setMessage(err)}
+          />
+
+          <div style={{ display: 'flex', alignItems: 'center', margin: '18px 0', gap: '12px' }}>
+            <div style={{ flex: 1, height: '1px', background: 'var(--border-color)' }} />
+            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+              Or continue with email
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'var(--border-color)' }} />
+          </div>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">

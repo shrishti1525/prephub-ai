@@ -12,7 +12,24 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: false
+  },
+  googleId: {
+    type: String,
+    default: null
+  },
+  avatar: {
+    type: String,
+    default: ""
+  },
+  authProvider: {
+    type: String,
+    default: "local",
+    enum: ["local", "google"]
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 const User = mongoose.model("User", userSchema);

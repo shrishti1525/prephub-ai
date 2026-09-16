@@ -9,7 +9,8 @@ function Sidebar({ user, onLogout, theme, onToggleTheme }) {
     { to: '/aptitude', label: 'Aptitude Practice', icon: '🎯' },
     { to: '/resume', label: 'Resume & ATS', icon: '📄' },
     { to: '/experiences', label: 'Interview Archive', icon: '💼' },
-    { to: '/notes', label: 'Prep Notes', icon: '📝' }
+    { to: '/notes', label: 'Prep Notes', icon: '📝' },
+    { to: '/about', label: 'About PrepHub', icon: 'ℹ️' }
   ];
 
   return (
