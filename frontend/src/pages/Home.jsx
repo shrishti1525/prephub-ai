@@ -62,9 +62,9 @@ function Home({ token }) {
         {/* Left Hero Column */}
         <div style={{ textAlign: 'left' }}>
           {/* Glow pill */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid rgba(99, 102, 241, 0.35)', marginBottom: '18px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(247, 157, 101, 0.12)', border: '1px solid rgba(247, 157, 101, 0.35)', marginBottom: '18px' }}>
             <span className="live-dot" />
-            <span style={{ fontSize: '13px', fontWeight: 700, color: '#a5b4fc', letterSpacing: '0.3px' }}>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: '#F79D65', letterSpacing: '0.3px' }}>
               CAMPUS PLACEMENT SEASON 2026
             </span>
           </div>
@@ -97,13 +97,13 @@ function Home({ token }) {
 
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center', fontSize: '12.5px', color: 'var(--text-muted)' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ color: '#10b981' }}>✓</span> Free for Students
+              <span style={{ color: '#5EF2D5' }}>✓</span> Free for Students
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ color: '#10b981' }}>✓</span> Gemini 3.5 AI Core
+              <span style={{ color: '#5EF2D5' }}>✓</span> Gemini 3.5 AI Core
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ color: '#10b981' }}>✓</span> Real Placement Questions
+              <span style={{ color: '#5EF2D5' }}>✓</span> Real Placement Questions
             </span>
           </div>
         </div>
@@ -117,7 +117,7 @@ function Home({ token }) {
               width: '320px',
               height: '320px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(96, 181, 255, 0.35) 0%, rgba(94, 242, 213, 0.18) 50%, transparent 70%)',
               filter: 'blur(30px)',
               zIndex: 0,
               pointerEvents: 'none'
@@ -133,9 +133,9 @@ function Home({ token }) {
               position: 'absolute',
               top: '18%',
               left: '5%',
-              background: 'rgba(15, 23, 42, 0.85)',
+              background: 'rgba(13, 20, 36, 0.85)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
+              border: '1px solid rgba(96, 181, 255, 0.4)',
               borderRadius: '10px',
               padding: '8px 14px',
               display: 'flex',
@@ -148,7 +148,7 @@ function Home({ token }) {
             <span style={{ fontSize: '14px' }}>⚡</span>
             <div>
               <div style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>DSA ENGINE</div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#38bdf8' }}>AI Intuition Mentoring</div>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: '#60B5FF' }}>AI Intuition Mentoring</div>
             </div>
           </div>
 
@@ -157,9 +157,9 @@ function Home({ token }) {
               position: 'absolute',
               bottom: '16%',
               right: '6%',
-              background: 'rgba(15, 23, 42, 0.85)',
+              background: 'rgba(13, 20, 36, 0.85)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
+              border: '1px solid rgba(94, 242, 213, 0.4)',
               borderRadius: '10px',
               padding: '8px 14px',
               display: 'flex',
@@ -172,7 +172,7 @@ function Home({ token }) {
             <span style={{ fontSize: '14px' }}>📄</span>
             <div>
               <div style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>ATS SCANNER</div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#34d399' }}>94% SDE Match Rate</div>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: '#5EF2D5' }}>94% SDE Match Rate</div>
             </div>
           </div>
         </div>
@@ -251,9 +251,9 @@ function Home({ token }) {
                 style={{
                   fontSize: '10.5px',
                   fontWeight: 800,
-                  color: '#818cf8',
-                  background: 'rgba(99, 102, 241, 0.1)',
-                  border: '1px solid rgba(99, 102, 241, 0.25)',
+                  color: '#60B5FF',
+                  background: 'rgba(96, 181, 255, 0.12)',
+                  border: '1px solid rgba(96, 181, 255, 0.3)',
                   padding: '3px 8px',
                   borderRadius: '6px',
                   letterSpacing: '0.6px'
@@ -277,10 +277,10 @@ function Home({ token }) {
         className="card"
         style={{
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(15, 23, 42, 0.9) 100%)',
-          border: '1px solid rgba(99, 102, 241, 0.35)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(94, 242, 213, 0.12) 50%, rgba(15, 23, 42, 0.9) 100%)',
+          border: '1px solid rgba(96, 181, 255, 0.35)',
           padding: '48px 32px',
-          boxShadow: '0 0 35px -5px rgba(99, 102, 241, 0.2)'
+          boxShadow: '0 0 35px -5px rgba(96, 181, 255, 0.2)'
         }}
       >
         <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#fff', margin: '0 0 12px' }}>

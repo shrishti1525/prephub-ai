@@ -126,8 +126,8 @@ function AiCoach({ token }) {
           <div
             className="card"
             style={{
-              background: 'linear-gradient(135deg, rgba(30, 41, 59, 1), rgba(15, 23, 42, 1))',
-              border: '1px solid rgba(99, 102, 241, 0.3)'
+              background: 'linear-gradient(135deg, rgba(20, 32, 54, 0.95), rgba(13, 20, 36, 0.95))',
+              border: '1px solid rgba(96, 181, 255, 0.35)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
@@ -149,14 +149,14 @@ function AiCoach({ token }) {
               <div style={{ minWidth: '220px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontWeight: 600, marginBottom: '6px' }}>
                   <span>Sprint Completion</span>
-                  <span style={{ color: '#38bdf8' }}>{progressPercent}%</span>
+                  <span style={{ color: '#60B5FF' }}>{progressPercent}%</span>
                 </div>
                 <div style={{ width: '100%', height: '8px', background: 'var(--bg-input)', borderRadius: '999px', overflow: 'hidden' }}>
                   <div
                     style={{
                       width: `${progressPercent}%`,
                       height: '100%',
-                      background: 'linear-gradient(90deg, #6366f1, #10b981)',
+                      background: 'linear-gradient(90deg, #60B5FF, #5EF2D5)',
                       transition: 'width 0.4s ease'
                     }}
                   />
@@ -171,7 +171,7 @@ function AiCoach({ token }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
               {/* DSA Gaps */}
               <div style={{ background: 'var(--bg-input)', padding: '14px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '11px', color: '#f87171', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <div style={{ fontSize: '11px', color: '#F35252', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   ⚡ DSA Priority Gaps
                 </div>
                 <ul style={{ margin: '6px 0 0 16px', fontSize: '13px', color: 'var(--text-secondary)' }}>
@@ -183,7 +183,7 @@ function AiCoach({ token }) {
 
               {/* Aptitude Gaps */}
               <div style={{ background: 'var(--bg-input)', padding: '14px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '11px', color: '#fbbf24', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <div style={{ fontSize: '11px', color: '#F79D65', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   🎯 Aptitude Weaknesses
                 </div>
                 <ul style={{ margin: '6px 0 0 16px', fontSize: '13px', color: 'var(--text-secondary)' }}>
@@ -193,16 +193,16 @@ function AiCoach({ token }) {
                 </ul>
               </div>
 
-              {/* Resume & Strategy */}
+              {/* Resume Insights */}
               <div style={{ background: 'var(--bg-input)', padding: '14px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  📄 Resume & Strategy Advice
+                <div style={{ fontSize: '11px', color: '#60B5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  📄 ATS Strategy & Verdict
                 </div>
                 <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '6px', lineHeight: 1.4 }}>
                   {activePlan.diagnostics?.resumeStatus}
                 </p>
                 {activePlan.diagnostics?.keyAdvice && (
-                  <p style={{ fontSize: '12px', color: '#34d399', marginTop: '6px', fontWeight: 500 }}>
+                  <p style={{ fontSize: '12px', color: '#5EF2D5', marginTop: '6px', fontWeight: 600 }}>
                     💡 {activePlan.diagnostics.keyAdvice}
                   </p>
                 )}
@@ -226,8 +226,8 @@ function AiCoach({ token }) {
                   className="card"
                   style={{
                     padding: '18px 20px',
-                    borderLeft: day.completed ? '4px solid #10b981' : '4px solid #6366f1',
-                    background: day.completed ? 'rgba(16, 185, 129, 0.05)' : 'var(--bg-card)'
+                    borderLeft: day.completed ? '4px solid #5EF2D5' : '4px solid #60B5FF',
+                    background: day.completed ? 'rgba(94, 242, 213, 0.05)' : 'var(--bg-card)'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' }}>
@@ -235,8 +235,8 @@ function AiCoach({ token }) {
                       <span
                         className="badge"
                         style={{
-                          backgroundColor: day.completed ? 'rgba(16, 185, 129, 0.2)' : 'rgba(99, 102, 241, 0.2)',
-                          color: day.completed ? '#34d399' : '#818cf8',
+                          backgroundColor: day.completed ? 'rgba(94, 242, 213, 0.2)' : 'rgba(96, 181, 255, 0.2)',
+                          color: day.completed ? '#5EF2D5' : '#60B5FF',
                           fontSize: '12px'
                         }}
                       >
@@ -252,8 +252,8 @@ function AiCoach({ token }) {
                       className={`btn btn-sm ${day.completed ? 'btn-secondary' : 'btn-primary'}`}
                       style={{
                         backgroundColor: day.completed ? 'transparent' : undefined,
-                        borderColor: day.completed ? '#10b981' : undefined,
-                        color: day.completed ? '#34d399' : '#fff'
+                        borderColor: day.completed ? '#5EF2D5' : undefined,
+                        color: day.completed ? '#5EF2D5' : undefined
                       }}
                     >
                       {day.completed ? '✓ Completed' : 'Mark Complete'}
@@ -264,7 +264,7 @@ function AiCoach({ token }) {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '12px' }}>
                     {/* DSA Task */}
                     <div style={{ background: 'var(--bg-input)', padding: '12px', borderRadius: '6px' }}>
-                      <div style={{ fontSize: '11px', color: '#818cf8', fontWeight: 600, marginBottom: '4px' }}>
+                      <div style={{ fontSize: '11px', color: '#60B5FF', fontWeight: 700, marginBottom: '4px' }}>
                         ⚡ DSA CODING TARGET
                       </div>
                       <div style={{ fontSize: '13px', color: 'var(--text-primary)', lineHeight: 1.4 }}>
@@ -274,7 +274,7 @@ function AiCoach({ token }) {
 
                     {/* Aptitude Task */}
                     <div style={{ background: 'var(--bg-input)', padding: '12px', borderRadius: '6px' }}>
-                      <div style={{ fontSize: '11px', color: '#06b6d4', fontWeight: 600, marginBottom: '4px' }}>
+                      <div style={{ fontSize: '11px', color: '#5EF2D5', fontWeight: 700, marginBottom: '4px' }}>
                         🎯 APTITUDE PRACTICE
                       </div>
                       <div style={{ fontSize: '13px', color: 'var(--text-primary)', lineHeight: 1.4 }}>
@@ -284,7 +284,7 @@ function AiCoach({ token }) {
 
                     {/* Core CS / HR Task */}
                     <div style={{ background: 'var(--bg-input)', padding: '12px', borderRadius: '6px' }}>
-                      <div style={{ fontSize: '11px', color: '#a855f7', fontWeight: 600, marginBottom: '4px' }}>
+                      <div style={{ fontSize: '11px', color: '#F79D65', fontWeight: 700, marginBottom: '4px' }}>
                         📘 CS CONCEPTS & INTERVIEW PREP
                       </div>
                       <div style={{ fontSize: '13px', color: 'var(--text-primary)', lineHeight: 1.4 }}>

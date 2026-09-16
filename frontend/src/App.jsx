@@ -68,7 +68,7 @@ function App() {
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div className="logo-badge">P</div>
             <span style={{ fontWeight: 700, fontSize: '18px', color: '#fff' }}>
-              PrepHub <span style={{ color: '#818cf8' }}>AI</span>
+              PrepHub <span style={{ color: '#60B5FF' }}>AI</span>
             </span>
           </Link>
 

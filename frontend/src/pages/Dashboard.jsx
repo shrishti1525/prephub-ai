@@ -69,9 +69,9 @@ function Dashboard({ token }) {
   } = data;
 
   const difficultyColors = {
-    Easy: '#10b981',
-    Medium: '#f59e0b',
-    Hard: '#ef4444'
+    Easy: '#5EF2D5',
+    Medium: '#F79D65',
+    Hard: '#F35252'
   };
 
   const difficultyChartData = (problems.difficultyCounts || []).filter((d) => d.count > 0);
@@ -88,13 +88,13 @@ function Dashboard({ token }) {
     { category: 'Verbal', accuracy: 0 }
   ];
 
-  // Dynamic Tier
+  // Dynamic Tier mapped to User Palette
   const tierInfo =
     readinessIndex >= 75
-      ? { label: '🏆 Level 3: Interview Ready', color: '#10b981', advice: 'Top percentile candidate! Continue timed mocks and system design.' }
+      ? { label: '🏆 Level 3: Interview Ready', color: '#5EF2D5', advice: 'Top percentile candidate! Continue timed mocks and system design.' }
       : readinessIndex >= 40
-      ? { label: '⚡ Level 2: Assessment Candidate', color: '#38bdf8', advice: 'Solid core momentum! Focus on tree/graph traversals and quantitative aptitude.' }
-      : { label: '🌱 Level 1: Foundations Sprint', color: '#fbbf24', advice: 'Getting started! Add your solved problems and scan your resume to boost your readiness.' };
+      ? { label: '⚡ Level 2: Assessment Candidate', color: '#60B5FF', advice: 'Solid core momentum! Focus on tree/graph traversals and quantitative aptitude.' }
+      : { label: '🌱 Level 1: Foundations Sprint', color: '#FFE588', advice: 'Getting started! Add your solved problems and scan your resume to boost your readiness.' };
 
   return (
     <div className="content-area">
@@ -103,9 +103,9 @@ function Dashboard({ token }) {
         className="card"
         style={{
           marginBottom: '30px',
-          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(30, 41, 59, 0.8) 50%, rgba(17, 24, 39, 0.95) 100%)',
-          border: '1px solid rgba(99, 102, 241, 0.35)',
-          boxShadow: '0 8px 30px rgba(99, 102, 241, 0.12)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(15, 23, 42, 0.85) 50%, rgba(9, 14, 26, 0.95) 100%)',
+          border: '1px solid rgba(96, 181, 255, 0.35)',
+          boxShadow: '0 8px 30px rgba(96, 181, 255, 0.12)',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -113,7 +113,7 @@ function Dashboard({ token }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
           <div style={{ flex: '1 1 360px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <span className="badge badge-solved" style={{ background: 'rgba(99, 102, 241, 0.2)' }}>
+              <span className="badge badge-solved" style={{ background: 'rgba(96, 181, 255, 0.18)', color: '#60B5FF' }}>
                 Campus Placement Index
               </span>
               <span
@@ -124,7 +124,7 @@ function Dashboard({ token }) {
                   padding: '3px 10px',
                   borderRadius: '999px',
                   background: 'rgba(255, 255, 255, 0.05)',
-                  border: `1px solid ${tierInfo.color}30`
+                  border: `1px solid ${tierInfo.color}40`
                 }}
               >
                 {tierInfo.label}
@@ -158,8 +158,8 @@ function Dashboard({ token }) {
                   style={{
                     width: `${readinessIndex}%`,
                     height: '100%',
-                    background: 'linear-gradient(90deg, #6366f1, #06b6d4, #10b981)',
-                    boxShadow: '0 0 12px rgba(16, 185, 129, 0.5)',
+                    background: 'linear-gradient(90deg, #60B5FF, #5EF2D5, #FFE588)',
+                    boxShadow: '0 0 12px rgba(94, 242, 213, 0.5)',
                     transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                 />
@@ -181,9 +181,9 @@ function Dashboard({ token }) {
           </div>
           <div className="kpi-value">{problems.total || 0}</div>
           <div className="kpi-subtext" style={{ display: 'flex', gap: '8px', fontWeight: 600 }}>
-            <span style={{ color: '#10b981' }}>Easy: {problems.difficultyCounts?.[0]?.count || 0}</span>
-            <span style={{ color: '#f59e0b' }}>Med: {problems.difficultyCounts?.[1]?.count || 0}</span>
-            <span style={{ color: '#ef4444' }}>Hard: {problems.difficultyCounts?.[2]?.count || 0}</span>
+            <span style={{ color: '#5EF2D5' }}>Easy: {problems.difficultyCounts?.[0]?.count || 0}</span>
+            <span style={{ color: '#F79D65' }}>Med: {problems.difficultyCounts?.[1]?.count || 0}</span>
+            <span style={{ color: '#F35252' }}>Hard: {problems.difficultyCounts?.[2]?.count || 0}</span>
           </div>
         </TiltCard3D>
 
@@ -338,7 +338,7 @@ function Dashboard({ token }) {
                     boxShadow: '0 8px 24px rgba(0,0,0,0.5)'
                   }}
                 />
-                <Bar dataKey="accuracy" fill="#06b6d4" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="accuracy" fill="#60B5FF" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -350,8 +350,8 @@ function Dashboard({ token }) {
             <div className="card-title">Placement Prep Actions</div>
             
             {/* Daily Pro-Tip Pill */}
-            <div style={{ background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.25)', borderRadius: 'var(--radius-md)', padding: '14px', marginBottom: '18px' }}>
-              <div style={{ fontSize: '11px', fontWeight: 800, color: '#a5b4fc', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '4px' }}>
+            <div style={{ background: 'rgba(255, 229, 136, 0.08)', border: '1px solid rgba(255, 229, 136, 0.3)', borderRadius: 'var(--radius-md)', padding: '14px', marginBottom: '18px' }}>
+              <div style={{ fontSize: '11px', fontWeight: 800, color: '#FFE588', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '4px' }}>
                 💡 PRO-TIP OF THE DAY
               </div>
               <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
@@ -360,7 +360,7 @@ function Dashboard({ token }) {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link to="/coach" className="btn btn-primary" style={{ justifyContent: 'flex-start', background: 'linear-gradient(135deg, #6366f1, #a855f7)' }}>
+              <Link to="/coach" className="btn btn-primary" style={{ justifyContent: 'flex-start' }}>
                 🧭 AI Study Coach & Daily Sprint Roadmap
               </Link>
               <Link to="/dsa-tracker" className="btn btn-secondary" style={{ justifyContent: 'flex-start' }}>

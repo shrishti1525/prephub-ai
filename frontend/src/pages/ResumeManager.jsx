@@ -369,15 +369,15 @@ function ResumeManager({ token }) {
                 className="card"
                 maxTilt={6}
                 style={{
-                  background: 'linear-gradient(135deg, rgba(30, 41, 59, 1), rgba(15, 23, 42, 1))',
-                  border: '1px solid rgba(99, 102, 241, 0.3)',
+                  background: 'linear-gradient(135deg, rgba(20, 32, 54, 0.95), rgba(13, 20, 36, 0.95))',
+                  border: '1px solid rgba(96, 181, 255, 0.35)',
                   padding: '28px'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                      <span className="badge badge-solved">
+                      <span className="badge badge-solved" style={{ background: 'rgba(96, 181, 255, 0.15)', color: '#60B5FF' }}>
                         Target Role: {activeAnalysis.targetRole}
                       </span>
                       <span
@@ -385,9 +385,9 @@ function ResumeManager({ token }) {
                         style={{
                           backgroundColor:
                             activeAnalysis.atsScore >= 75
-                              ? 'rgba(16, 185, 129, 0.15)'
-                              : 'rgba(245, 158, 11, 0.15)',
-                          color: activeAnalysis.atsScore >= 75 ? '#34d399' : '#fbbf24'
+                              ? 'rgba(94, 242, 213, 0.15)'
+                              : 'rgba(247, 157, 101, 0.15)',
+                          color: activeAnalysis.atsScore >= 75 ? '#5EF2D5' : '#F79D65'
                         }}
                       >
                         {activeAnalysis.atsScore >= 75 ? 'Tier 1 • High ATS Pass' : 'Tier 2 • Needs Optimization'}
@@ -409,16 +409,16 @@ function ResumeManager({ token }) {
                       height: '100px',
                       borderRadius: '50%',
                       background:
-                        'radial-gradient(circle, #131b2e 58%, transparent 59%), conic-gradient(' +
-                        (activeAnalysis.atsScore >= 75 ? '#10b981 ' : '#f59e0b ') +
+                        'radial-gradient(circle, #0f172a 58%, transparent 59%), conic-gradient(' +
+                        (activeAnalysis.atsScore >= 75 ? '#5EF2D5 ' : activeAnalysis.atsScore >= 50 ? '#F79D65 ' : '#F35252 ') +
                         activeAnalysis.atsScore * 3.6 +
-                        'deg, #334155 0deg)',
+                        'deg, #24355a 0deg)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: activeAnalysis.atsScore >= 75 ? '0 0 25px rgba(16, 185, 129, 0.3)' : '0 0 25px rgba(245, 158, 11, 0.3)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)'
+                      boxShadow: activeAnalysis.atsScore >= 75 ? '0 0 25px rgba(94, 242, 213, 0.35)' : '0 0 25px rgba(247, 157, 101, 0.35)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)'
                     }}
                   >
                     <div style={{ fontSize: '26px', fontWeight: 800, color: '#fff' }}>
@@ -435,14 +435,14 @@ function ResumeManager({ token }) {
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '6px' }}>
                       <span>SKILLS MATCH</span>
-                      <span style={{ color: '#38bdf8' }}>{activeAnalysis.categoryScores?.skillsMatch || 75}%</span>
+                      <span style={{ color: '#60B5FF' }}>{activeAnalysis.categoryScores?.skillsMatch || 75}%</span>
                     </div>
                     <div style={{ width: '100%', height: '6px', background: 'var(--bg-input)', borderRadius: '999px', overflow: 'hidden' }}>
                       <div
                         style={{
                           width: `${activeAnalysis.categoryScores?.skillsMatch || 75}%`,
                           height: '100%',
-                          background: '#38bdf8',
+                          background: '#60B5FF',
                           borderRadius: '999px'
                         }}
                       />
@@ -452,14 +452,14 @@ function ResumeManager({ token }) {
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '6px' }}>
                       <span>QUANTIFIABLE IMPACT</span>
-                      <span style={{ color: '#f59e0b' }}>{activeAnalysis.categoryScores?.impact || 60}%</span>
+                      <span style={{ color: '#F79D65' }}>{activeAnalysis.categoryScores?.impact || 60}%</span>
                     </div>
                     <div style={{ width: '100%', height: '6px', background: 'var(--bg-input)', borderRadius: '999px', overflow: 'hidden' }}>
                       <div
                         style={{
                           width: `${activeAnalysis.categoryScores?.impact || 60}%`,
                           height: '100%',
-                          background: '#f59e0b',
+                          background: '#F79D65',
                           borderRadius: '999px'
                         }}
                       />
@@ -469,14 +469,14 @@ function ResumeManager({ token }) {
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '6px' }}>
                       <span>READABILITY & FORMAT</span>
-                      <span style={{ color: '#34d399' }}>{activeAnalysis.categoryScores?.readability || 85}%</span>
+                      <span style={{ color: '#5EF2D5' }}>{activeAnalysis.categoryScores?.readability || 85}%</span>
                     </div>
                     <div style={{ width: '100%', height: '6px', background: 'var(--bg-input)', borderRadius: '999px', overflow: 'hidden' }}>
                       <div
                         style={{
                           width: `${activeAnalysis.categoryScores?.readability || 85}%`,
                           height: '100%',
-                          background: '#34d399',
+                          background: '#5EF2D5',
                           borderRadius: '999px'
                         }}
                       />
@@ -489,7 +489,7 @@ function ResumeManager({ token }) {
               <div className="card">
                 <div className="card-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span>✅ Resume Strengths</span>
-                  <span style={{ fontSize: '12px', color: '#34d399' }}>Verified Ready</span>
+                  <span style={{ fontSize: '12px', color: '#5EF2D5', fontWeight: 700 }}>Verified Ready</span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {activeAnalysis.strengths?.map((str, idx) => (
@@ -504,7 +504,7 @@ function ResumeManager({ token }) {
                         lineHeight: 1.5
                       }}
                     >
-                      <span style={{ color: '#10b981', fontWeight: 800 }}>✓</span>
+                      <span style={{ color: '#5EF2D5', fontWeight: 800 }}>✓</span>
                       <span>{str}</span>
                     </div>
                   ))}
@@ -533,9 +533,9 @@ function ResumeManager({ token }) {
                       key={idx}
                       style={{
                         padding: '5px 12px',
-                        background: 'rgba(245, 158, 11, 0.1)',
-                        border: '1px solid rgba(245, 158, 11, 0.3)',
-                        color: '#fbbf24',
+                        background: 'rgba(255, 229, 136, 0.1)',
+                        border: '1px solid rgba(255, 229, 136, 0.35)',
+                        color: '#FFE588',
                         borderRadius: '6px',
                         fontSize: '12.5px',
                         fontWeight: 600,
@@ -565,7 +565,7 @@ function ResumeManager({ token }) {
                         borderRadius: '8px',
                         fontSize: '13.5px',
                         color: 'var(--text-secondary)',
-                        borderLeft: '4px solid #6366f1',
+                        borderLeft: '4px solid #60B5FF',
                         lineHeight: 1.6
                       }}
                     >

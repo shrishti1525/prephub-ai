@@ -241,10 +241,10 @@ function Aptitude({ token }) {
                           padding: '18px 16px',
                           borderRadius: '12px',
                           background: isSelected
-                            ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.2))'
-                            : 'rgba(15, 23, 42, 0.6)',
-                          border: isSelected ? '1.5px solid #818cf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                          boxShadow: isSelected ? '0 0 20px rgba(99, 102, 241, 0.3)' : 'none',
+                            ? 'linear-gradient(135deg, rgba(96, 181, 255, 0.25), rgba(94, 242, 213, 0.2))'
+                            : 'rgba(13, 20, 36, 0.65)',
+                          border: isSelected ? '1.5px solid #60B5FF' : '1px solid rgba(255, 255, 255, 0.08)',
+                          boxShadow: isSelected ? '0 0 20px rgba(96, 181, 255, 0.35)' : 'none',
                           cursor: 'pointer',
                           textAlign: 'center'
                         }}
@@ -264,40 +264,40 @@ function Aptitude({ token }) {
                 {/* Features Pill Banner */}
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px', fontSize: '13px', color: 'var(--text-secondary)' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: '#10b981' }}>✓</span> 5 Questions
+                    <span style={{ color: '#5EF2D5' }}>✓</span> 5 Questions
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: '#10b981' }}>✓</span> 300s Countdown
+                    <span style={{ color: '#5EF2D5' }}>✓</span> 300s Countdown
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: '#10b981' }}>✓</span> Instant Detailed Solutions
+                    <span style={{ color: '#5EF2D5' }}>✓</span> Instant Detailed Solutions
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: '#10b981' }}>✓</span> Auto-saves to History
+                    <span style={{ color: '#5EF2D5' }}>✓</span> Auto-saves to History
                   </span>
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
                   <button
                     className="btn btn-primary"
-                    style={{ padding: '14px 40px', fontSize: '16px', fontWeight: 700, borderRadius: '12px' }}
+                    style={{ padding: '13px 40px', fontSize: '15px', fontWeight: 800 }}
                     onClick={() => startQuiz(category)}
                     disabled={quizLoading}
                   >
-                    {quizLoading ? 'Preparing Test Set...' : `Launch ${category} Test Sprint →`}
+                    {quizLoading ? 'Preparing Questions...' : `⚡ Begin ${category} Test →`}
                   </button>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Active Quiz Test Runner */}
+          {/* Active Quiz View */}
           {quizActive && currentQ && (
-            <div className="card" style={{ maxWidth: '780px', margin: '0 auto', padding: '28px 32px' }}>
-              {/* Header with Timer and Category */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>
+            <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+              {/* Question Header Card */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span className="badge badge-solved" style={{ fontSize: '12px' }}>
+                  <span className="badge badge-solved" style={{ fontSize: '12px', background: 'rgba(96, 181, 255, 0.15)', color: '#60B5FF' }}>
                     {currentQ.category}
                   </span>
                   <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
@@ -313,11 +313,11 @@ function Aptitude({ token }) {
                     gap: '8px',
                     padding: '6px 14px',
                     borderRadius: '999px',
-                    background: timeLeft < 60 ? 'rgba(239, 68, 68, 0.15)' : 'rgba(15, 23, 42, 0.8)',
-                    border: timeLeft < 60 ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid var(--border-color)'
+                    background: timeLeft < 60 ? 'rgba(243, 82, 82, 0.15)' : 'rgba(15, 23, 42, 0.8)',
+                    border: timeLeft < 60 ? '1px solid rgba(243, 82, 82, 0.4)' : '1px solid var(--border-color)'
                   }}
                 >
-                  <span style={{ fontSize: '12px', color: timeLeft < 60 ? '#f87171' : 'var(--text-muted)' }}>
+                  <span style={{ fontSize: '12px', color: timeLeft < 60 ? '#F35252' : 'var(--text-muted)' }}>
                     {timeLeft < 60 ? '⚠️ Time Critical:' : 'Time Left:'}
                   </span>
                   <span
@@ -325,7 +325,7 @@ function Aptitude({ token }) {
                       fontFamily: 'monospace',
                       fontWeight: 800,
                       fontSize: '17px',
-                      color: timeLeft < 60 ? '#f87171' : '#38bdf8'
+                      color: timeLeft < 60 ? '#F35252' : '#60B5FF'
                     }}
                   >
                     {formatTime(timeLeft)}
@@ -355,17 +355,17 @@ function Aptitude({ token }) {
                           cursor: 'pointer',
                           transition: 'all 0.2s',
                           background: isCurrent
-                            ? 'linear-gradient(135deg, #6366f1, #a855f7)'
+                            ? 'linear-gradient(135deg, #60B5FF, #5EF2D5)'
                             : isAnswered
-                            ? 'rgba(16, 185, 129, 0.15)'
+                            ? 'rgba(94, 242, 213, 0.15)'
                             : 'var(--bg-input)',
                           border: isCurrent
                             ? '2px solid #fff'
                             : isAnswered
-                            ? '1px solid #10b981'
+                            ? '1px solid #5EF2D5'
                             : '1px solid var(--border-color)',
-                          color: isCurrent ? '#fff' : isAnswered ? '#34d399' : 'var(--text-secondary)',
-                          boxShadow: isCurrent ? '0 0 12px rgba(99, 102, 241, 0.5)' : 'none'
+                          color: isCurrent ? '#090e1a' : isAnswered ? '#5EF2D5' : 'var(--text-secondary)',
+                          boxShadow: isCurrent ? '0 0 14px rgba(96, 181, 255, 0.5)' : 'none'
                         }}
                         title={`Jump to Question ${idx + 1} (${isAnswered ? 'Answered' : 'Unanswered'})`}
                       >

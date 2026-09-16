@@ -25,39 +25,39 @@ export default function Hero3DCanvas() {
     const mainGroup = new THREE.Group();
     scene.add(mainGroup);
 
-    // 1. Central 3D Core: Wireframe Icosahedron
+    // 1. Central 3D Core: Wireframe Icosahedron (Cool Sky)
     const coreGeometry = new THREE.IcosahedronGeometry(1.8, 1);
     const coreWireMaterial = new THREE.MeshStandardMaterial({
-      color: 0x818cf8,
+      color: 0x60B5FF,
       wireframe: true,
       roughness: 0.2,
       metalness: 0.9,
-      emissive: 0x4f46e5,
+      emissive: 0x3ea0ff,
       emissiveIntensity: 0.6
     });
     const coreWireMesh = new THREE.Mesh(coreGeometry, coreWireMaterial);
     mainGroup.add(coreWireMesh);
 
-    // Inner glowing solid crystal
+    // Inner glowing solid crystal (Aquamarine with refractive depth)
     const innerGeometry = new THREE.OctahedronGeometry(1.1, 0);
     const innerMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0xc084fc,
+      color: 0x5EF2D5,
       roughness: 0.1,
       metalness: 0.8,
       transmission: 0.6,
       thickness: 1.2,
-      emissive: 0x9333ea,
+      emissive: 0x5EF2D5,
       emissiveIntensity: 0.5
     });
     const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
     mainGroup.add(innerMesh);
 
-    // 2. Orbiting Torus Ring 1 (Cyan)
+    // 2. Orbiting Torus Ring 1 (Aquamarine)
     const ring1Geo = new THREE.TorusGeometry(2.8, 0.035, 16, 100);
     const ring1Mat = new THREE.MeshStandardMaterial({
-      color: 0x06b6d4,
-      emissive: 0x06b6d4,
-      emissiveIntensity: 0.8,
+      color: 0x5EF2D5,
+      emissive: 0x5EF2D5,
+      emissiveIntensity: 0.85,
       roughness: 0.3
     });
     const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
@@ -65,12 +65,12 @@ export default function Hero3DCanvas() {
     ring1.rotation.y = Math.PI / 6;
     mainGroup.add(ring1);
 
-    // 3. Orbiting Torus Ring 2 (Purple/Rose)
+    // 3. Orbiting Torus Ring 2 (Tangerine Dream)
     const ring2Geo = new THREE.TorusGeometry(3.3, 0.025, 16, 100);
     const ring2Mat = new THREE.MeshStandardMaterial({
-      color: 0xa855f7,
-      emissive: 0xa855f7,
-      emissiveIntensity: 0.8,
+      color: 0xF79D65,
+      emissive: 0xF79D65,
+      emissiveIntensity: 0.85,
       roughness: 0.3
     });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
@@ -78,31 +78,45 @@ export default function Hero3DCanvas() {
     ring2.rotation.y = Math.PI / 4;
     mainGroup.add(ring2);
 
-    // 4. Orbiting Mini Data Satellites (Spheres)
+    // 4. Orbiting Mini Data Satellites (Aquamarine, Jasmine, Strawberry Red)
     const satelliteGeo = new THREE.SphereGeometry(0.14, 16, 16);
-    const satelliteMat = new THREE.MeshStandardMaterial({
-      color: 0x34d399,
-      emissive: 0x10b981,
+    
+    const sat1Mat = new THREE.MeshStandardMaterial({
+      color: 0x5EF2D5,
+      emissive: 0x5EF2D5,
       emissiveIntensity: 1
     });
-    const sat1 = new THREE.Mesh(satelliteGeo, satelliteMat);
-    const sat2 = new THREE.Mesh(satelliteGeo, satelliteMat.clone());
-    sat2.material.color.setHex(0xfbbf24);
-    sat2.material.emissive.setHex(0xf59e0b);
+    const sat1 = new THREE.Mesh(satelliteGeo, sat1Mat);
+    
+    const sat2Mat = new THREE.MeshStandardMaterial({
+      color: 0xFFE588,
+      emissive: 0xFFE588,
+      emissiveIntensity: 1
+    });
+    const sat2 = new THREE.Mesh(satelliteGeo, sat2Mat);
+
+    const sat3Mat = new THREE.MeshStandardMaterial({
+      color: 0xF35252,
+      emissive: 0xF35252,
+      emissiveIntensity: 1
+    });
+    const sat3 = new THREE.Mesh(satelliteGeo, sat3Mat);
+
     mainGroup.add(sat1);
     mainGroup.add(sat2);
+    mainGroup.add(sat3);
 
-    // 5. 3D Floating Particle Constellation
+    // 5. 3D Floating Particle Constellation with User Palette
     const particleCount = 450;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
     const palette = [
-      new THREE.Color(0x818cf8), // Indigo
-      new THREE.Color(0xc084fc), // Purple
-      new THREE.Color(0x38bdf8), // Cyan
-      new THREE.Color(0x34d399)  // Emerald
+      new THREE.Color(0x60B5FF), // Cool Sky
+      new THREE.Color(0x5EF2D5), // Aquamarine
+      new THREE.Color(0xF79D65), // Tangerine Dream
+      new THREE.Color(0xFFE588)  // Jasmine
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -133,19 +147,19 @@ export default function Hero3DCanvas() {
     const particleSystem = new THREE.Points(particleGeo, particleMat);
     mainGroup.add(particleSystem);
 
-    // 6. Lighting
+    // 6. Lighting with Palette Colors
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0x6366f1, 4, 20);
+    const pointLight1 = new THREE.PointLight(0x60B5FF, 4, 20);
     pointLight1.position.set(5, 5, 5);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0x06b6d4, 3, 20);
+    const pointLight2 = new THREE.PointLight(0x5EF2D5, 3, 20);
     pointLight2.position.set(-5, -4, 3);
     scene.add(pointLight2);
 
-    const pointLight3 = new THREE.PointLight(0xa855f7, 3, 15);
+    const pointLight3 = new THREE.PointLight(0xF79D65, 3, 15);
     pointLight3.position.set(0, 4, -4);
     scene.add(pointLight3);
 
@@ -203,6 +217,11 @@ export default function Hero3DCanvas() {
       sat2.position.y = Math.sin(sat2Angle) * Math.sin(-Math.PI / 4) * 3.3;
       sat2.position.z = Math.sin(sat2Angle) * Math.cos(-Math.PI / 4) * 3.3;
 
+      const sat3Angle = elapsedTime * 1.5 + Math.PI / 2;
+      sat3.position.x = Math.sin(sat3Angle) * 2.5;
+      sat3.position.y = Math.cos(sat3Angle) * 2.2;
+      sat3.position.z = Math.sin(sat3Angle * 0.5) * 1.5;
+
       // Particle system gentle rotation
       particleSystem.rotation.y = elapsedTime * 0.05;
       particleSystem.rotation.x = Math.sin(elapsedTime * 0.03) * 0.1;
@@ -241,7 +260,9 @@ export default function Hero3DCanvas() {
       ring2Geo.dispose();
       ring2Mat.dispose();
       satelliteGeo.dispose();
-      satelliteMat.dispose();
+      sat1Mat.dispose();
+      sat2Mat.dispose();
+      sat3Mat.dispose();
       particleGeo.dispose();
       particleMat.dispose();
       renderer.dispose();

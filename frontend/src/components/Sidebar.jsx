@@ -41,8 +41,8 @@ function Sidebar({ user, onLogout }) {
                 style={{
                   fontSize: '10px',
                   fontWeight: 800,
-                  background: 'linear-gradient(135deg, #a855f7, #6366f1)',
-                  color: '#fff',
+                  background: 'linear-gradient(135deg, #F79D65, #FFE588)',
+                  color: '#090e1a',
                   padding: '2px 6px',
                   borderRadius: '6px',
                   letterSpacing: '0.5px'
@@ -58,8 +58,8 @@ function Sidebar({ user, onLogout }) {
         <div
           style={{
             marginTop: 'auto',
-            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.08))',
-            border: '1px solid rgba(99, 102, 241, 0.25)',
+            background: 'linear-gradient(135deg, rgba(247, 157, 101, 0.12), rgba(255, 229, 136, 0.08))',
+            border: '1px solid rgba(247, 157, 101, 0.3)',
             borderRadius: 'var(--radius-md)',
             padding: '14px',
             display: 'flex',
@@ -69,7 +69,7 @@ function Sidebar({ user, onLogout }) {
         >
           <div style={{ fontSize: '24px' }}>🔥</div>
           <div>
-            <div style={{ fontSize: '12px', fontWeight: 700, color: '#fff' }}>Daily Placement Sprint</div>
+            <div style={{ fontSize: '12px', fontWeight: 700, color: '#FFE588' }}>Daily Placement Sprint</div>
             <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Keep momentum going!</div>
           </div>
         </div>

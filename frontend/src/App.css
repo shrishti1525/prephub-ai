@@ -1,24 +1,24 @@
-/* Modern SaaS UI Utility Classes */
+/* Modern SaaS UI Utility Classes with 5-Color Palette */
 .text-gradient {
-  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #38bdf8 100%);
+  background: linear-gradient(135deg, #60B5FF 0%, #5EF2D5 50%, #FFE588 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-purple {
-  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #60B5FF 0%, #5EF2D5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #F79D65 0%, #FFE588 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  background: linear-gradient(135deg, #5EF2D5 0%, #60B5FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -31,7 +31,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), transparent 60%, rgba(168, 85, 247, 0.2));
+  background: linear-gradient(135deg, rgba(96, 181, 255, 0.35), transparent 60%, rgba(94, 242, 213, 0.25));
   border-radius: inherit;
   z-index: -1;
   pointer-events: none;
@@ -70,14 +70,14 @@
 /* Pulse indicator for live features */
 @keyframes pulseDot {
   0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.8)); }
+  50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 6px rgba(94, 242, 213, 0.85)); }
   100% { transform: scale(0.95); opacity: 0.8; }
 }
 
 .live-dot {
   width: 8px;
   height: 8px;
-  background-color: #10b981;
+  background-color: #5EF2D5;
   border-radius: 50%;
   display: inline-block;
   animation: pulseDot 2s infinite ease-in-out;
@@ -90,7 +90,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(13, 20, 36, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -101,17 +101,17 @@
 }
 
 .filter-pill:hover {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(28, 38, 56, 0.8);
   color: #fff;
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
 }
 
 .filter-pill.active {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
-  border-color: #818cf8;
+  background: linear-gradient(135deg, rgba(96, 181, 255, 0.25), rgba(94, 242, 213, 0.25));
+  border-color: #60B5FF;
   color: #fff;
-  box-shadow: 0 0 14px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 16px rgba(96, 181, 255, 0.35);
 }
 
 /* Stat Ribbon Chip */
@@ -120,7 +120,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
-  background: rgba(17, 24, 39, 0.7);
+  background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
@@ -128,9 +128,9 @@
 }
 
 .stat-chip:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(24, 36, 62, 0.85);
 }
 
 /* Company / User Avatar Initial */
@@ -143,7 +143,7 @@
   justify-content: center;
   font-weight: 800;
   font-size: 18px;
-  color: #fff;
+  color: #090e1a;
   text-transform: uppercase;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -181,14 +181,14 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #1e293b;
-  border: 2px solid #6366f1;
+  background: #111827;
+  border: 2px solid #60B5FF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   font-weight: 700;
-  color: #818cf8;
+  color: #5EF2D5;
 }
 
 /* Interactive Question Card */
@@ -199,7 +199,7 @@
   padding: 14px 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(13, 20, 36, 0.65);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -207,27 +207,27 @@
 }
 
 .question-option-card:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(24, 36, 62, 0.85);
+  border-color: rgba(96, 181, 255, 0.4);
   transform: translateX(4px);
 }
 
 .question-option-card.selected {
-  background: rgba(99, 102, 241, 0.15);
-  border-color: #818cf8;
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+  background: rgba(96, 181, 255, 0.15);
+  border-color: #60B5FF;
+  box-shadow: 0 0 20px rgba(96, 181, 255, 0.25);
 }
 
 .question-option-card.correct {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: #10b981;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+  background: rgba(94, 242, 213, 0.15);
+  border-color: #5EF2D5;
+  box-shadow: 0 0 20px rgba(94, 242, 213, 0.25);
 }
 
 .question-option-card.wrong {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: #ef4444;
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.25);
+  background: rgba(243, 82, 82, 0.15);
+  border-color: #F35252;
+  box-shadow: 0 0 20px rgba(243, 82, 82, 0.25);
 }
 
 /* Circular ATS Gauge Container */
@@ -238,5 +238,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 30px rgba(94, 242, 213, 0.25);
 }

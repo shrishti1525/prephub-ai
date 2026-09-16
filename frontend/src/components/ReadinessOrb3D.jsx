@@ -23,11 +23,11 @@ export default function ReadinessOrb3D({ score = 75, tier = 'Level 2' }) {
     const group = new THREE.Group();
     scene.add(group);
 
-    // Determine colors based on score
+    // Determine colors based on score using user palette
     const isHigh = score >= 75;
     const isMed = score >= 40 && score < 75;
-    const primaryColor = isHigh ? 0x10b981 : isMed ? 0x38bdf8 : 0xf59e0b;
-    const accentColor = isHigh ? 0x34d399 : isMed ? 0x818cf8 : 0xfbbf24;
+    const primaryColor = isHigh ? 0x5EF2D5 : isMed ? 0x60B5FF : 0xFFE588; // Aquamarine : Cool Sky : Jasmine
+    const accentColor = isHigh ? 0x60B5FF : isMed ? 0xF79D65 : 0xF79D65;  // Cool Sky : Tangerine : Tangerine
 
     // 1. Central Core Mesh
     const coreGeo = new THREE.DodecahedronGeometry(1.0, 1);

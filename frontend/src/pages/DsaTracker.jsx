@@ -207,34 +207,34 @@ function DsaTracker({ token }) {
         </div>
 
         <div className="stat-chip">
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#5EF2D5', boxShadow: '0 0 8px #5EF2D5' }} />
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Easy</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#34d399' }}>{easyCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#5EF2D5' }}>{easyCount}</div>
           </div>
         </div>
 
         <div className="stat-chip">
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', boxShadow: '0 0 8px #f59e0b' }} />
+          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F79D65', boxShadow: '0 0 8px #F79D65' }} />
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Medium</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#fbbf24' }}>{mediumCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#F79D65' }}>{mediumCount}</div>
           </div>
         </div>
 
         <div className="stat-chip">
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', boxShadow: '0 0 8px #ef4444' }} />
+          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F35252', boxShadow: '0 0 8px #F35252' }} />
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Hard</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#f87171' }}>{hardCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#F35252' }}>{hardCount}</div>
           </div>
         </div>
 
         <div className="stat-chip">
-          <div style={{ fontSize: '20px' }}>✓</div>
+          <div style={{ fontSize: '20px', color: '#60B5FF' }}>✓</div>
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Solved</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#a5b4fc' }}>{solvedCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#60B5FF' }}>{solvedCount}</div>
           </div>
         </div>
 
@@ -242,15 +242,15 @@ function DsaTracker({ token }) {
           <div style={{ fontSize: '20px' }}>🔄</div>
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Revision</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#fbbf24' }}>{revisionCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#FFE588' }}>{revisionCount}</div>
           </div>
         </div>
 
-        <div className="stat-chip" onClick={() => setStarredOnly(!starredOnly)} style={{ cursor: 'pointer', borderColor: starredOnly ? '#f59e0b' : undefined }}>
-          <div style={{ fontSize: '20px', color: '#f59e0b' }}>★</div>
+        <div className="stat-chip" onClick={() => setStarredOnly(!starredOnly)} style={{ cursor: 'pointer', borderColor: starredOnly ? '#FFE588' : undefined }}>
+          <div style={{ fontSize: '20px', color: '#FFE588' }}>★</div>
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Starred</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#f59e0b' }}>{starredCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#FFE588' }}>{starredCount}</div>
           </div>
         </div>
       </div>
