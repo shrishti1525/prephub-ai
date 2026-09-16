@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL, GOOGLE_CLIENT_ID } from '../config/api.js';
 
 function GoogleAuthButton({ onSuccess, onError, text = 'Continue with Google', fullWidth = true, disabled = false }) {
   const [loading, setLoading] = useState(false);
@@ -7,13 +8,7 @@ function GoogleAuthButton({ onSuccess, onError, text = 'Continue with Google', f
     if (disabled || loading) return;
     setLoading(true);
 
-    const googleClientId =
-      import.meta.env.VITE_GOOGLE_CLIENT_ID ||
-      '210805382032-pddbsivr12ir7s93qpeofnbvd6gvkihu.apps.googleusercontent.com';
-
-    const rawApiUrl = import.meta.env.VITE_CLIENT_URI || 'http://localhost:5000/api/';
-    const apiBaseUrl = rawApiUrl.replace(/\/+$/, '') + '/';
-    const callbackUrl = `${apiBaseUrl}auth/google/callback`;
+    const callbackUrl = `${API_BASE_URL}auth/google/callback`;
 
     // Center popup coordinates
     const width = 500;
@@ -23,7 +18,7 @@ function GoogleAuthButton({ onSuccess, onError, text = 'Continue with Google', f
 
     // Directly open Google's OAuth2 consent screen in the popup window
     const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(
-      googleClientId
+      GOOGLE_CLIENT_ID
     )}&redirect_uri=${encodeURIComponent(
       callbackUrl
     )}&response_type=code&scope=openid%20profile%20email&prompt=select_account&state=popup`;

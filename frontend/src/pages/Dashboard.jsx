@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReadinessOrb3D from '../components/ReadinessOrb3D';
 import TiltCard3D from '../components/TiltCard3D';
-
-const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+import { API_BASE_URL } from '../config/api.js';
 import {
   PieChart,
   Pie,

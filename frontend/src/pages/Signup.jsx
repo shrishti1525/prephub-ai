@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import GoogleAuthButton from '../components/GoogleAuthButton.jsx';
-
-const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+import { API_BASE_URL } from '../config/api.js';
 
 function Signup({ setToken, setUser }) {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });

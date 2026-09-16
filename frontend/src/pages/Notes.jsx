@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+import { API_BASE_URL } from '../config/api.js';
 
 function Notes({ token }) {
   const [formData, setFormData] = useState({ title: '', content: '' });

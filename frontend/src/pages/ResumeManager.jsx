@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TiltCard3D from '../components/TiltCard3D';
-
-const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+import { API_BASE_URL } from '../config/api.js';
 
 function ResumeManager({ token }) {
   const [resumes, setResumes] = useState([]);
