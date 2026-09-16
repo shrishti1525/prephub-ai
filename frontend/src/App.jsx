@@ -13,6 +13,7 @@ import InterviewExperiences from './pages/InterviewExperiences.jsx';
 import Notes from './pages/Notes.jsx';
 import AiCoach from './pages/AiCoach.jsx';
 import About from './pages/About.jsx';
+import AuthCallback from './pages/AuthCallback.jsx';
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('prephub_theme') || 'dark');
@@ -109,6 +110,7 @@ function App() {
             <Route path="/about" element={<About token={token} />} />
             <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
             <Route path="/signup" element={<Signup setToken={setToken} setUser={setUser} />} />
+            <Route path="/auth/callback" element={<AuthCallback setToken={setToken} setUser={setUser} />} />
             <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </main>
@@ -186,6 +188,7 @@ function App() {
             <Route path="/about" element={<About token={token} />} />
             <Route path="/login" element={<Navigate to="/dashboard" replace />} />
             <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/auth/callback" element={<Navigate to="/dashboard" replace />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </main>

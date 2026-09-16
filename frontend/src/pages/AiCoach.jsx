@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function AiCoach({ token }) {
   const [activePlan, setActivePlan] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,7 @@ function AiCoach({ token }) {
   async function fetchActivePlan() {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/coach/active', {
+      const res = await axios.get(`${API_BASE_URL}coach/active`, {
         headers: { authorization: token }
       });
       setActivePlan(res.data);
@@ -46,7 +48,7 @@ function AiCoach({ token }) {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/coach/generate',
+        `${API_BASE_URL}coach/generate`,
         {
           targetRole,
           durationDays,
@@ -66,7 +68,7 @@ function AiCoach({ token }) {
   async function handleToggleTask(dayNumber) {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/coach/tasks/${dayNumber}`,
+        `${API_BASE_URL}coach/tasks/${dayNumber}`,
         {},
         { headers: { authorization: token } }
       );

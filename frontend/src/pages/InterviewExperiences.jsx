@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function InterviewExperiences({ token, currentUser }) {
   const [experiences, setExperiences] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ function InterviewExperiences({ token, currentUser }) {
       if (search) params.search = search;
       if (verdictFilter) params.verdict = verdictFilter;
 
-      const res = await axios.get('http://localhost:5000/api/experiences', {
+      const res = await axios.get(`${API_BASE_URL}experiences`, {
         headers: { authorization: token },
         params
       });
@@ -77,7 +79,7 @@ function InterviewExperiences({ token, currentUser }) {
     e.preventDefault();
     setSubmitError('');
     try {
-      await axios.post('http://localhost:5000/api/experiences', formData, {
+      await axios.post(`${API_BASE_URL}experiences`, formData, {
         headers: { authorization: token }
       });
       setShowModal(false);
@@ -102,7 +104,7 @@ function InterviewExperiences({ token, currentUser }) {
   async function handleToggleUpvote(expId) {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/experiences/${expId}/upvote`,
+        `${API_BASE_URL}experiences/${expId}/upvote`,
         {},
         { headers: { authorization: token } }
       );

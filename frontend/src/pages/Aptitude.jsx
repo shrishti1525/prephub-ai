@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TiltCard3D from '../components/TiltCard3D';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function Aptitude({ token }) {
   const [activeTab, setActiveTab] = useState('quiz'); // 'quiz' | 'practice' | 'history'
   const [category, setCategory] = useState('Quantitative');
@@ -49,7 +51,7 @@ function Aptitude({ token }) {
   async function fetchPracticeQuestions() {
     try {
       setPracticeLoading(true);
-      const res = await axios.get('http://localhost:5000/api/aptitude/questions', {
+      const res = await axios.get(`${API_BASE_URL}aptitude/questions`, {
         headers: { authorization: token },
         params: { category }
       });
@@ -64,7 +66,7 @@ function Aptitude({ token }) {
   async function fetchAttempts() {
     try {
       setHistoryLoading(true);
-      const res = await axios.get('http://localhost:5000/api/aptitude/attempts', {
+      const res = await axios.get(`${API_BASE_URL}aptitude/attempts`, {
         headers: { authorization: token }
       });
       setAttempts(res.data);
@@ -83,7 +85,7 @@ function Aptitude({ token }) {
       setCurrentQIndex(0);
       setTimeLeft(300);
 
-      const res = await axios.get('http://localhost:5000/api/aptitude/quiz', {
+      const res = await axios.get(`${API_BASE_URL}aptitude/quiz`, {
         headers: { authorization: token },
         params: { category: selectedCat, count: 5 }
       });
@@ -110,7 +112,7 @@ function Aptitude({ token }) {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/aptitude/submit',
+        `${API_BASE_URL}aptitude/submit`,
         {
           category,
           answers: answersPayload,

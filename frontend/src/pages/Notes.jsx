@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function Notes({ token }) {
   const [formData, setFormData] = useState({ title: '', content: '' });
   const [notes, setNotes] = useState([]);
@@ -10,7 +12,7 @@ function Notes({ token }) {
   async function fetchNotes() {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/notes', {
+      const response = await axios.get(`${API_BASE_URL}notes`, {
         headers: { authorization: token }
       });
       setNotes(response.data);
@@ -32,7 +34,7 @@ function Notes({ token }) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/notes', formData, {
+      await axios.post(`${API_BASE_URL}notes`, formData, {
         headers: { authorization: token }
       });
       setMessage('Note added successfully!');
@@ -47,7 +49,7 @@ function Notes({ token }) {
 
   async function handleDeleteNote(id) {
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${id}`, {
+      await axios.delete(`${API_BASE_URL}notes/${id}`, {
         headers: { authorization: token }
       });
       setNotes((prev) => prev.filter((n) => n._id !== id));

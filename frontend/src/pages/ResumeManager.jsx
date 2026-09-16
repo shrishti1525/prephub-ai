@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TiltCard3D from '../components/TiltCard3D';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function ResumeManager({ token }) {
   const [resumes, setResumes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ function ResumeManager({ token }) {
   async function fetchResumes() {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/resumes', {
+      const res = await axios.get(`${API_BASE_URL}resumes`, {
         headers: { authorization: token }
       });
       setResumes(res.data);
@@ -74,7 +76,7 @@ function ResumeManager({ token }) {
         formData.append('resumeText', resumeText);
       }
 
-      const res = await axios.post('http://localhost:5000/api/resumes/analyze', formData, {
+      const res = await axios.post(`${API_BASE_URL}resumes/analyze`, formData, {
         headers: {
           authorization: token,
           'Content-Type': 'multipart/form-data'
@@ -93,7 +95,7 @@ function ResumeManager({ token }) {
   async function handleDeleteResume(id) {
     if (!window.confirm('Delete this resume analysis?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/resumes/${id}`, {
+      await axios.delete(`${API_BASE_URL}resumes/${id}`, {
         headers: { authorization: token }
       });
       setResumes((prev) => prev.filter((r) => r._id !== id));

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
+
 function DsaTracker({ token }) {
   const [problems, setProblems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ function DsaTracker({ token }) {
       if (statusFilter) params.status = statusFilter;
       if (search) params.search = search;
 
-      const response = await axios.get('http://localhost:5000/api/problems', {
+      const response = await axios.get(`${API_BASE_URL}problems`, {
         headers: { authorization: token },
         params
       });
@@ -69,7 +71,7 @@ function DsaTracker({ token }) {
     e.preventDefault();
     setSubmitError('');
     try {
-      await axios.post('http://localhost:5000/api/problems', formData, {
+      await axios.post(`${API_BASE_URL}problems`, formData, {
         headers: { authorization: token }
       });
       setShowAddModal(false);
@@ -91,7 +93,7 @@ function DsaTracker({ token }) {
   async function handleToggleStatus(problem, newStatus) {
     try {
       await axios.put(
-        `http://localhost:5000/api/problems/${problem._id}`,
+        `${API_BASE_URL}problems/${problem._id}`,
         { status: newStatus },
         { headers: { authorization: token } }
       );
@@ -107,7 +109,7 @@ function DsaTracker({ token }) {
     try {
       const newStarred = !problem.starred;
       await axios.put(
-        `http://localhost:5000/api/problems/${problem._id}`,
+        `${API_BASE_URL}problems/${problem._id}`,
         { starred: newStarred },
         { headers: { authorization: token } }
       );
@@ -122,7 +124,7 @@ function DsaTracker({ token }) {
   async function handleDeleteProblem(id) {
     if (!window.confirm('Are you sure you want to delete this problem?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/problems/${id}`, {
+      await axios.delete(`${API_BASE_URL}problems/${id}`, {
         headers: { authorization: token }
       });
       setProblems((prev) => prev.filter((p) => p._id !== id));
@@ -140,7 +142,7 @@ function DsaTracker({ token }) {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/problems/hint',
+        `${API_BASE_URL}problems/hint`,
         {
           title: problem.title,
           topic: problem.topic,

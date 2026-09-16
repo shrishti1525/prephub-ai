@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReadinessOrb3D from '../components/ReadinessOrb3D';
 import TiltCard3D from '../components/TiltCard3D';
+
+const API_BASE_URL = (import.meta.env.VITE_CLIENT_URI || '').replace(/\/+$/, '') + '/';
 import {
   PieChart,
   Pie,
@@ -25,7 +27,7 @@ function Dashboard({ token }) {
     async function fetchDashboard() {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/dashboard', {
+        const response = await axios.get(`${API_BASE_URL}dashboard`, {
           headers: { authorization: token }
         });
         setData(response.data);
