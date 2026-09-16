@@ -152,8 +152,9 @@ function Aptitude({ token }) {
         </div>
 
         {/* Tab Switcher Pills */}
-        <div style={{ display: 'flex', gap: '8px', background: 'rgba(17, 24, 39, 0.7)', padding: '6px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div style={{ display: 'flex', gap: '8px', background: 'rgba(8, 14, 28, 0.85)', padding: '6px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
           <button
+            type="button"
             className={`filter-pill ${activeTab === 'quiz' ? 'active' : ''}`}
             onClick={() => {
               setActiveTab('quiz');
@@ -164,12 +165,14 @@ function Aptitude({ token }) {
             ⏱️ Timed Quiz
           </button>
           <button
+            type="button"
             className={`filter-pill ${activeTab === 'practice' ? 'active' : ''}`}
             onClick={() => setActiveTab('practice')}
           >
             📚 Question Bank
           </button>
           <button
+            type="button"
             className={`filter-pill ${activeTab === 'history' ? 'active' : ''}`}
             onClick={() => setActiveTab('history')}
           >

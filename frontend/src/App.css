@@ -85,30 +85,32 @@
 
 /* Quick Filter Pills */
 .filter-pill {
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 9999px;
   font-size: 13px;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  background: rgba(13, 20, 36, 0.65);
+  background: rgba(14, 22, 42, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   user-select: none;
+  outline: none;
 }
 
 .filter-pill:hover {
-  background: rgba(28, 38, 56, 0.8);
+  background: rgba(22, 34, 62, 0.85);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(96, 181, 255, 0.35);
   transform: translateY(-1px);
 }
 
 .filter-pill.active {
-  background: linear-gradient(135deg, rgba(96, 181, 255, 0.25), rgba(94, 242, 213, 0.25));
+  background: linear-gradient(135deg, rgba(96, 181, 255, 0.25), rgba(94, 242, 213, 0.22));
   border-color: #60B5FF;
   color: #fff;
   box-shadow: 0 0 16px rgba(96, 181, 255, 0.35);

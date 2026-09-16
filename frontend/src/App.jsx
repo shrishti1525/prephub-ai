@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import './App.css';
 import Sidebar from './components/Sidebar.jsx';
 import Home from './pages/Home.jsx';
 import Signup from './pages/Signup.jsx';
