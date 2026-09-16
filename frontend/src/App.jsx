@@ -58,7 +58,7 @@ function App() {
             justifyContent: 'space-between',
             padding: '0 32px',
             borderBottom: '1px solid var(--border-color)',
-            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+            backgroundColor: 'rgba(3, 7, 18, 0.88)',
             backdropFilter: 'blur(8px)',
             position: 'sticky',
             top: 0,

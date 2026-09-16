@@ -133,7 +133,7 @@ function Home({ token }) {
               position: 'absolute',
               top: '18%',
               left: '5%',
-              background: 'rgba(13, 20, 36, 0.85)',
+              background: 'rgba(7, 12, 24, 0.85)',
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(96, 181, 255, 0.4)',
               borderRadius: '10px',
@@ -157,7 +157,7 @@ function Home({ token }) {
               position: 'absolute',
               bottom: '16%',
               right: '6%',
-              background: 'rgba(13, 20, 36, 0.85)',
+              background: 'rgba(7, 12, 24, 0.85)',
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(94, 242, 213, 0.4)',
               borderRadius: '10px',
@@ -187,7 +187,7 @@ function Home({ token }) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '16px',
           marginBottom: '56px',
-          background: 'rgba(17, 24, 39, 0.7)',
+          background: 'rgba(8, 14, 28, 0.75)',
           backdropFilter: 'blur(16px)',
           border: '1px solid var(--border-color)',
           padding: '22px 32px'
@@ -216,7 +216,7 @@ function Home({ token }) {
               key={idx}
               style={{
                 padding: '6px 14px',
-                background: 'rgba(31, 41, 55, 0.6)',
+                background: 'rgba(12, 19, 36, 0.6)',
                 border: '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-full)',
                 fontSize: '13px',
@@ -277,7 +277,7 @@ function Home({ token }) {
         className="card"
         style={{
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(94, 242, 213, 0.12) 50%, rgba(15, 23, 42, 0.9) 100%)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(94, 242, 213, 0.12) 50%, rgba(3, 7, 18, 0.95) 100%)',
           border: '1px solid rgba(96, 181, 255, 0.35)',
           padding: '48px 32px',
           boxShadow: '0 0 35px -5px rgba(96, 181, 255, 0.2)'

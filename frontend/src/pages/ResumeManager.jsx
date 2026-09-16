@@ -409,7 +409,7 @@ function ResumeManager({ token }) {
                       height: '100px',
                       borderRadius: '50%',
                       background:
-                        'radial-gradient(circle, #0f172a 58%, transparent 59%), conic-gradient(' +
+                        'radial-gradient(circle, #080d1c 58%, transparent 59%), conic-gradient(' +
                         (activeAnalysis.atsScore >= 75 ? '#5EF2D5 ' : activeAnalysis.atsScore >= 50 ? '#F79D65 ' : '#F35252 ') +
                         activeAnalysis.atsScore * 3.6 +
                         'deg, #24355a 0deg)',

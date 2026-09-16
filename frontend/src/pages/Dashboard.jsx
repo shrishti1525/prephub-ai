@@ -103,7 +103,7 @@ function Dashboard({ token }) {
         className="card"
         style={{
           marginBottom: '30px',
-          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(15, 23, 42, 0.85) 50%, rgba(9, 14, 26, 0.95) 100%)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.15) 0%, rgba(8, 14, 26, 0.85) 50%, rgba(3, 7, 18, 0.95) 100%)',
           border: '1px solid rgba(96, 181, 255, 0.35)',
           boxShadow: '0 8px 30px rgba(96, 181, 255, 0.12)',
           position: 'relative',
@@ -153,7 +153,7 @@ function Dashboard({ token }) {
                 <span style={{ color: 'var(--text-secondary)' }}>Overall Progress</span>
                 <span style={{ color: '#fff' }}>{readinessIndex} / 100</span>
               </div>
-              <div style={{ width: '100%', height: '10px', background: 'rgba(15, 23, 42, 0.8)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '100%', height: '10px', background: 'rgba(5, 9, 18, 0.85)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
                 <div
                   style={{
                     width: `${readinessIndex}%`,
