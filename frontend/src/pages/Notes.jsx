@@ -68,7 +68,7 @@ function Notes({ token }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 400px) 1fr', gap: '24px', alignItems: 'start' }}>
         {/* Create Note Card */}
         <div className="card">
-          <h3 style={{ fontSize: '16px', marginBottom: '16px', color: '#fff' }}>Add New Note</h3>
+          <h3 style={{ fontSize: '16px', marginBottom: '16px', color: 'var(--text-primary)' }}>Add New Note</h3>
           {message && (
             <div className={`alert ${message.includes('success') ? 'alert-success' : 'alert-error'}`}>
               {message}
@@ -121,7 +121,7 @@ function Notes({ token }) {
                 <div key={note._id} className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                      <h4 style={{ fontSize: '15px', color: '#fff', margin: 0 }}>{note.title}</h4>
+                      <h4 style={{ fontSize: '15px', color: 'var(--text-primary)', margin: 0 }}>{note.title}</h4>
                       <button
                         onClick={() => handleDeleteNote(note._id)}
                         style={{ background: 'none', border: 'none', color: '#F35252', cursor: 'pointer', fontSize: '13px' }}

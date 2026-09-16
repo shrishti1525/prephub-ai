@@ -69,7 +69,7 @@ function Home({ token }) {
             </span>
           </div>
 
-          <h1 style={{ fontSize: '50px', fontWeight: 800, margin: '8px 0 18px', letterSpacing: '-1.5px', color: '#fff', lineHeight: 1.15 }}>
+          <h1 style={{ fontSize: '50px', fontWeight: 800, margin: '8px 0 18px', letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.15 }}>
             Crack Your Dream Tech Offer with <br />
             <span className="text-gradient">3D Intelligent Prep</span>
           </h1>
@@ -187,7 +187,7 @@ function Home({ token }) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '16px',
           marginBottom: '56px',
-          background: 'rgba(8, 14, 28, 0.75)',
+          background: 'var(--bg-card)',
           backdropFilter: 'blur(16px)',
           border: '1px solid var(--border-color)',
           padding: '22px 32px'
@@ -198,7 +198,7 @@ function Home({ token }) {
             <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px', fontWeight: 700 }}>
               {h.label}
             </div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#fff', marginTop: '4px' }}>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-primary)', marginTop: '4px' }}>
               {h.value}
             </div>
           </div>
@@ -216,7 +216,7 @@ function Home({ token }) {
               key={idx}
               style={{
                 padding: '6px 14px',
-                background: 'rgba(12, 19, 36, 0.6)',
+                background: 'var(--bg-card)',
                 border: '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-full)',
                 fontSize: '13px',
@@ -262,7 +262,7 @@ function Home({ token }) {
                 {feat.badge}
               </span>
             </div>
-            <h3 style={{ fontSize: '18px', color: '#fff', margin: 0, fontWeight: 700 }}>
+            <h3 style={{ fontSize: '18px', color: 'var(--text-primary)', margin: 0, fontWeight: 700 }}>
               {feat.title}
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', lineHeight: 1.6 }}>
@@ -277,13 +277,13 @@ function Home({ token }) {
         className="card"
         style={{
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(94, 242, 213, 0.12) 50%, rgba(3, 7, 18, 0.95) 100%)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.16) 0%, rgba(94, 242, 213, 0.12) 50%, var(--bg-card) 100%)',
           border: '1px solid rgba(96, 181, 255, 0.35)',
           padding: '48px 32px',
           boxShadow: '0 0 35px -5px rgba(96, 181, 255, 0.2)'
         }}
       >
-        <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#fff', margin: '0 0 12px' }}>
+        <h2 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 12px' }}>
           Ready to Elevate Your Placement Prep?
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '15px', maxWidth: '600px', margin: '0 auto 28px', lineHeight: 1.6 }}>

@@ -245,7 +245,7 @@ function InterviewExperiences({ token, currentUser }) {
       ) : experiences.length === 0 ? (
         <div className="card" style={{ textAlign: 'center', padding: '50px 20px', color: 'var(--text-muted)' }}>
           <div style={{ fontSize: '36px', marginBottom: '10px' }}>🏢</div>
-          <h3 style={{ color: '#fff', fontSize: '18px' }}>No interview experiences match your filter</h3>
+          <h3 style={{ color: 'var(--text-primary)', fontSize: '18px' }}>No interview experiences match your filter</h3>
           <p style={{ marginTop: '6px', fontSize: '14px' }}>
             Be the pioneer! Share questions and insights from your recent placement drive to empower your peers.
           </p>
@@ -278,7 +278,7 @@ function InterviewExperiences({ token, currentUser }) {
 
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                        <h2 style={{ fontSize: '20px', color: '#fff', margin: 0, fontWeight: 800 }}>
+                        <h2 style={{ fontSize: '20px', color: 'var(--text-primary)', margin: 0, fontWeight: 800 }}>
                           {exp.company}
                         </h2>
                         <span className="badge badge-solved" style={{ fontSize: '12px' }}>
@@ -462,7 +462,7 @@ function InterviewExperiences({ token, currentUser }) {
               {/* Rounds */}
               <div style={{ marginTop: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label className="form-label" style={{ fontWeight: 600, color: '#fff' }}>
+                  <label className="form-label" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                     Rounds Breakdown
                   </label>
                   <button type="button" onClick={handleAddRound} className="btn btn-secondary btn-sm">

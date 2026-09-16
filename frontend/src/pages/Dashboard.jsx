@@ -43,7 +43,7 @@ function Dashboard({ token }) {
     return (
       <div className="content-area" style={{ textAlign: 'center', paddingTop: '100px' }}>
         <div style={{ fontSize: '36px', marginBottom: '16px' }}>📊</div>
-        <h2 style={{ fontSize: '22px', color: '#fff' }}>Aggregating Placement Diagnostics...</h2>
+        <h2 style={{ fontSize: '22px', color: 'var(--text-primary)' }}>Aggregating Placement Diagnostics...</h2>
         <p style={{ color: 'var(--text-muted)', marginTop: '8px' }}>
           Crunching DSA difficulty distributions, aptitude accuracy, and resume scores...
         </p>
@@ -103,7 +103,7 @@ function Dashboard({ token }) {
         className="card"
         style={{
           marginBottom: '30px',
-          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.15) 0%, rgba(8, 14, 26, 0.85) 50%, rgba(3, 7, 18, 0.95) 100%)',
+          background: 'linear-gradient(135deg, rgba(96, 181, 255, 0.15) 0%, var(--bg-card) 50%, var(--bg-secondary) 100%)',
           border: '1px solid rgba(96, 181, 255, 0.35)',
           boxShadow: '0 8px 30px rgba(96, 181, 255, 0.12)',
           position: 'relative',
@@ -131,7 +131,7 @@ function Dashboard({ token }) {
               </span>
             </div>
 
-            <h1 style={{ fontSize: '30px', fontWeight: 800, margin: '8px 0', color: '#fff', letterSpacing: '-0.5px' }}>
+            <h1 style={{ fontSize: '30px', fontWeight: 800, margin: '8px 0', color: 'var(--text-primary)', letterSpacing: '-0.5px' }}>
               Readiness Score: <span className="text-gradient">{readinessIndex}%</span>
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '14px', maxWidth: '650px', lineHeight: 1.5 }}>
@@ -151,9 +151,9 @@ function Dashboard({ token }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', minWidth: '220px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontWeight: 600 }}>
                 <span style={{ color: 'var(--text-secondary)' }}>Overall Progress</span>
-                <span style={{ color: '#fff' }}>{readinessIndex} / 100</span>
+                <span style={{ color: 'var(--text-primary)' }}>{readinessIndex} / 100</span>
               </div>
-              <div style={{ width: '100%', height: '10px', background: 'rgba(5, 9, 18, 0.85)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
+              <div style={{ width: '100%', height: '10px', background: 'var(--border-color)', borderRadius: '999px', overflow: 'hidden' }}>
                 <div
                   style={{
                     width: `${readinessIndex}%`,

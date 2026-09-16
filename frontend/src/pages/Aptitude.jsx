@@ -191,14 +191,14 @@ function Aptitude({ token }) {
                 className="card"
                 style={{
                   padding: '36px',
-                  background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9))',
-                  border: '1px solid rgba(99, 102, 241, 0.3)',
-                  boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.7)'
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'var(--shadow-lg)'
                 }}
               >
                 <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                   <div style={{ fontSize: '44px', marginBottom: '10px' }}>⏱️</div>
-                  <h2 style={{ fontSize: '24px', color: '#fff', fontWeight: 800 }}>
+                  <h2 style={{ fontSize: '24px', color: 'var(--text-primary)', fontWeight: 800 }}>
                     Online Assessment (OA) Speed Sprint
                   </h2>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '14.5px', maxWidth: '560px', margin: '8px auto 0', lineHeight: 1.6 }}>
@@ -244,16 +244,16 @@ function Aptitude({ token }) {
                           padding: '18px 16px',
                           borderRadius: '12px',
                           background: isSelected
-                            ? 'linear-gradient(135deg, rgba(96, 181, 255, 0.25), rgba(94, 242, 213, 0.2))'
-                            : 'rgba(13, 20, 36, 0.65)',
-                          border: isSelected ? '1.5px solid #60B5FF' : '1px solid rgba(255, 255, 255, 0.08)',
-                          boxShadow: isSelected ? '0 0 20px rgba(96, 181, 255, 0.35)' : 'none',
+                            ? 'linear-gradient(135deg, rgba(96, 181, 255, 0.2), rgba(94, 242, 213, 0.16))'
+                            : 'var(--bg-input)',
+                          border: isSelected ? '1.5px solid var(--primary)' : '1px solid var(--border-color)',
+                          boxShadow: isSelected ? '0 0 20px rgba(96, 181, 255, 0.25)' : 'none',
                           cursor: 'pointer',
                           textAlign: 'center'
                         }}
                       >
                         <div style={{ fontSize: '28px', marginBottom: '8px' }}>{cat.icon}</div>
-                        <div style={{ fontWeight: 700, fontSize: '15px', color: isSelected ? '#fff' : 'var(--text-primary)' }}>
+                        <div style={{ fontWeight: 700, fontSize: '15px', color: isSelected ? 'var(--primary)' : 'var(--text-primary)' }}>
                           {cat.title}
                         </div>
                         <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px', lineHeight: 1.4 }}>
@@ -316,7 +316,7 @@ function Aptitude({ token }) {
                     gap: '8px',
                     padding: '6px 14px',
                     borderRadius: '999px',
-                    background: timeLeft < 60 ? 'rgba(243, 82, 82, 0.15)' : 'rgba(15, 23, 42, 0.8)',
+                    background: timeLeft < 60 ? 'rgba(243, 82, 82, 0.15)' : 'var(--bg-card)',
                     border: timeLeft < 60 ? '1px solid rgba(243, 82, 82, 0.4)' : '1px solid var(--border-color)'
                   }}
                 >
@@ -387,7 +387,7 @@ function Aptitude({ token }) {
               </div>
 
               {/* Question Text */}
-              <div style={{ background: 'rgba(15, 23, 42, 0.4)', padding: '20px', borderRadius: '12px', marginBottom: '24px', border: '1px solid var(--border-color)' }}>
+              <div style={{ background: 'var(--bg-input)', padding: '20px', borderRadius: '12px', marginBottom: '24px', border: '1px solid var(--border-color)' }}>
                 <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '6px', fontWeight: 600 }}>
                   QUESTION {currentQIndex + 1}
                 </div>
@@ -481,14 +481,14 @@ function Aptitude({ token }) {
                   textAlign: 'center',
                   marginBottom: '24px',
                   padding: '36px',
-                  background: 'linear-gradient(135deg, rgba(30, 41, 59, 1), rgba(15, 23, 42, 1))',
-                  border: '1px solid rgba(99, 102, 241, 0.3)'
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)'
                 }}
               >
                 <div style={{ fontSize: '40px', marginBottom: '12px' }}>
                   {quizResult.percentage >= 80 ? '🏆' : quizResult.percentage >= 60 ? '⚡' : '📚'}
                 </div>
-                <h2 style={{ fontSize: '26px', color: '#fff', margin: 0, fontWeight: 800 }}>
+                <h2 style={{ fontSize: '26px', color: 'var(--text-primary)', margin: 0, fontWeight: 800 }}>
                   Test Score: {quizResult.score} / {quizResult.totalQuestions}{' '}
                   <span className={quizResult.percentage >= 70 ? 'text-gradient-emerald' : 'text-gradient-gold'}>
                     ({quizResult.percentage}%)
@@ -552,7 +552,7 @@ function Aptitude({ token }) {
 
               {/* Review / Explanations List */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                <h3 style={{ fontSize: '18px', color: '#fff', margin: 0 }}>Detailed Question Solutions</h3>
+                <h3 style={{ fontSize: '18px', color: 'var(--text-primary)', margin: 0 }}>Detailed Question Solutions</h3>
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
                   Explanations with shortcut formulas
                 </span>

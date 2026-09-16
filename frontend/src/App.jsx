@@ -14,6 +14,7 @@ import Notes from './pages/Notes.jsx';
 import AiCoach from './pages/AiCoach.jsx';
 
 function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem('prephub_theme') || 'dark');
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [user, setUser] = useState(() => {
     try {
@@ -23,6 +24,15 @@ function App() {
       return null;
     }
   });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('prephub_theme', theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  }
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -59,8 +69,8 @@ function App() {
             justifyContent: 'space-between',
             padding: '0 32px',
             borderBottom: '1px solid var(--border-color)',
-            backgroundColor: 'rgba(3, 7, 18, 0.88)',
-            backdropFilter: 'blur(8px)',
+            backgroundColor: 'var(--bg-card)',
+            backdropFilter: 'blur(12px)',
             position: 'sticky',
             top: 0,
             zIndex: 50
@@ -68,12 +78,22 @@ function App() {
         >
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div className="logo-badge">P</div>
-            <span style={{ fontWeight: 700, fontSize: '18px', color: '#fff' }}>
-              PrepHub <span style={{ color: '#60B5FF' }}>AI</span>
+            <span style={{ fontWeight: 700, fontSize: '18px', color: 'var(--text-primary)' }}>
+              PrepHub <span style={{ color: 'var(--primary)' }}>AI</span>
             </span>
           </Link>
 
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+              aria-label="Toggle theme"
+            >
+              <span>{theme === 'dark' ? '☀️' : '🌙'}</span>
+              <span style={{ fontSize: '12px' }}>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            </button>
             <Link to="/" className="btn btn-secondary btn-sm">Home</Link>
             <Link to="/login" className="btn btn-secondary btn-sm">Sign In</Link>
             <Link to="/signup" className="btn btn-primary btn-sm">Get Started</Link>
@@ -95,7 +115,7 @@ function App() {
   // Authenticated SaaS App Shell with Sidebar
   return (
     <div className="app-layout">
-      <Sidebar user={user} onLogout={handleLogout} />
+      <Sidebar user={user} onLogout={handleLogout} theme={theme} onToggleTheme={toggleTheme} />
 
       <div className="main-wrapper">
         <header className="top-bar">
@@ -103,7 +123,18 @@ function App() {
             <h2>{currentTitle}</h2>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+              aria-label="Toggle theme"
+            >
+              <span>{theme === 'dark' ? '☀️' : '🌙'}</span>
+              <span style={{ fontSize: '12px' }}>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            </button>
+
             <Link to="/" style={{ fontSize: '13px', color: 'var(--text-secondary)', textDecoration: 'none' }}>
               Home Overview
             </Link>
@@ -111,8 +142,8 @@ function App() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <div
                 style={{
-                  width: '30px',
-                  height: '30px',
+                  width: '32px',
+                  height: '32px',
                   borderRadius: '50%',
                   background: 'var(--primary)',
                   display: 'flex',
@@ -125,7 +156,9 @@ function App() {
               >
                 {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
               </div>
-              <span style={{ fontSize: '13px', fontWeight: 600 }}>{user?.name || 'Candidate'}</span>
+              <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                {user?.name || 'Candidate'}
+              </span>
             </div>
           </div>
         </header>

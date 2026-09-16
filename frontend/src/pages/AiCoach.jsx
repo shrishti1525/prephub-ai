@@ -111,7 +111,7 @@ function AiCoach({ token }) {
         /* Empty State */
         <div className="card" style={{ textAlign: 'center', padding: '60px 24px', maxWidth: '640px', margin: '40px auto' }}>
           <div style={{ fontSize: '48px', marginBottom: '16px' }}>🧭</div>
-          <h2 style={{ fontSize: '22px', color: '#fff' }}>No Active Study Sprint Yet</h2>
+          <h2 style={{ fontSize: '22px', color: 'var(--text-primary)' }}>No Active Study Sprint Yet</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: '12px 0 24px', lineHeight: 1.6 }}>
             Let our AI Coach analyze your tracked DSA problems, aptitude accuracy, and resume ATS score to build a targeted daily study roadmap.
           </p>
@@ -126,14 +126,14 @@ function AiCoach({ token }) {
           <div
             className="card"
             style={{
-              background: 'linear-gradient(135deg, rgba(20, 32, 54, 0.95), rgba(13, 20, 36, 0.95))',
-              border: '1px solid rgba(96, 181, 255, 0.35)'
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-color)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                  <h2 style={{ fontSize: '20px', color: '#fff', margin: 0 }}>
+                  <h2 style={{ fontSize: '20px', color: 'var(--text-primary)', margin: 0 }}>
                     {activePlan.durationDays}-Day Sprint for {activePlan.targetRole}
                   </h2>
                   <span className="badge badge-easy">
@@ -213,7 +213,7 @@ function AiCoach({ token }) {
           {/* Daily Milestone Schedule List */}
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ fontSize: '18px', color: '#fff', margin: 0 }}>Day-by-Day Study Schedule</h3>
+              <h3 style={{ fontSize: '18px', color: 'var(--text-primary)', margin: 0 }}>Day-by-Day Study Schedule</h3>
               <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
                 Check off each day as you complete tasks to track your momentum
               </span>

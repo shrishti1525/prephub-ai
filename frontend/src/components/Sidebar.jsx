@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function Sidebar({ user, onLogout }) {
+function Sidebar({ user, onLogout, theme, onToggleTheme }) {
   const navItems = [
     { to: '/dashboard', label: 'Dashboard', icon: '📊' },
     { to: '/coach', label: 'AI Study Coach', icon: '🧭', badge: 'PRO' },
@@ -85,13 +85,24 @@ function Sidebar({ user, onLogout }) {
             <div className="user-email">{user?.email || 'Logged in'}</div>
           </div>
         </div>
-        <button
-          onClick={onLogout}
-          className="btn btn-secondary btn-sm"
-          style={{ width: '100%', marginTop: '4px' }}
-        >
-          Logout
-        </button>
+        <div style={{ display: 'flex', gap: '8px', width: '100%', marginTop: '8px' }}>
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="theme-toggle-btn"
+            style={{ flex: 1, fontSize: '11.5px', height: '32px', borderRadius: '8px', padding: '0 8px' }}
+            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+          >
+            <span>{theme === 'dark' ? '☀️ Light' : '🌙 Dark'}</span>
+          </button>
+          <button
+            onClick={onLogout}
+            className="btn btn-secondary btn-sm"
+            style={{ flex: 1, height: '32px' }}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </aside>
   );

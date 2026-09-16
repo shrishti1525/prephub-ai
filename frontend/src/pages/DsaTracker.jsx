@@ -202,7 +202,7 @@ function DsaTracker({ token }) {
           <div style={{ fontSize: '22px' }}>📚</div>
           <div>
             <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Total</div>
-            <div style={{ fontSize: '17px', fontWeight: 800, color: '#fff' }}>{totalCount}</div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-primary)' }}>{totalCount}</div>
           </div>
         </div>
 
@@ -660,7 +660,7 @@ function DsaTracker({ token }) {
             {hintLoading && (
               <div style={{ textAlign: 'center', padding: '48px 20px' }}>
                 <div style={{ fontSize: '32px', marginBottom: '12px' }}>✨</div>
-                <div style={{ fontWeight: 600, fontSize: '15px', color: '#fff' }}>
+                <div style={{ fontWeight: 600, fontSize: '15px', color: 'var(--text-primary)' }}>
                   Analyzing problem constraints & optimal algorithms...
                 </div>
                 <div style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>

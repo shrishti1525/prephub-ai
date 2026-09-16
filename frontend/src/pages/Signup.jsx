@@ -42,7 +42,7 @@ function Signup({ setToken, setUser }) {
       <div className="card" style={{ padding: '36px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="logo-badge" style={{ margin: '0 auto 12px auto' }}>P</div>
-          <h2 style={{ fontSize: '24px', color: '#fff', margin: 0 }}>Create PrepHub Account</h2>
+          <h2 style={{ fontSize: '24px', color: 'var(--text-primary)', margin: 0 }}>Create PrepHub Account</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
             Start your placement sprint today
           </p>

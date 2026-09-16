@@ -242,3 +242,56 @@
   justify-content: center;
   box-shadow: 0 0 30px rgba(94, 242, 213, 0.25);
 }
+
+/* Light Mode Utility Overrides */
+[data-theme="light"] .filter-pill {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+[data-theme="light"] .filter-pill:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+[data-theme="light"] .filter-pill.active {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.14), rgba(13, 148, 136, 0.12));
+  border-color: #0284c7;
+  color: #0284c7;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .stat-chip {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .stat-chip:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .text-gradient {
+  background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .question-option-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+[data-theme="light"] .question-option-card:hover {
+  background: #f8fafc;
+  border-color: #0284c7;
+}
+[data-theme="light"] .question-option-card.selected {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: #0284c7;
+}
+
+[data-theme="light"] .live-dot {
+  background-color: #0d9488;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.5);
+}

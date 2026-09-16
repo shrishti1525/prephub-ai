@@ -132,7 +132,7 @@ function ResumeManager({ token }) {
         {/* Left Column: Upload & Analyze Form */}
         <div>
           <div className="card" style={{ marginBottom: '20px', padding: '24px' }}>
-            <h3 style={{ fontSize: '17px', marginBottom: '16px', color: '#fff', fontWeight: 700 }}>
+            <h3 style={{ fontSize: '17px', marginBottom: '16px', color: 'var(--text-primary)', fontWeight: 700 }}>
               Scan New Resume
             </h3>
 
@@ -193,11 +193,11 @@ function ResumeManager({ token }) {
                   <label className="form-label">Resume File (.pdf, .txt)</label>
                   <div
                     style={{
-                      border: '2px dashed rgba(255, 255, 255, 0.15)',
+                      border: '2px dashed var(--border-color)',
                       borderRadius: '12px',
                       padding: '24px 16px',
                       textAlign: 'center',
-                      background: 'rgba(15, 23, 42, 0.4)',
+                      background: 'var(--bg-input)',
                       transition: 'border-color 0.2s',
                       cursor: 'pointer',
                       position: 'relative'
@@ -393,7 +393,7 @@ function ResumeManager({ token }) {
                         {activeAnalysis.atsScore >= 75 ? 'Tier 1 • High ATS Pass' : 'Tier 2 • Needs Optimization'}
                       </span>
                     </div>
-                    <h2 style={{ fontSize: '24px', margin: '4px 0', color: '#fff', fontWeight: 800 }}>
+                    <h2 style={{ fontSize: '24px', margin: '4px 0', color: 'var(--text-primary)', fontWeight: 800 }}>
                       {activeAnalysis.title}
                     </h2>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '13px', marginTop: '4px' }}>
@@ -409,19 +409,19 @@ function ResumeManager({ token }) {
                       height: '100px',
                       borderRadius: '50%',
                       background:
-                        'radial-gradient(circle, #080d1c 58%, transparent 59%), conic-gradient(' +
+                        'radial-gradient(circle, var(--bg-card) 58%, transparent 59%), conic-gradient(' +
                         (activeAnalysis.atsScore >= 75 ? '#5EF2D5 ' : activeAnalysis.atsScore >= 50 ? '#F79D65 ' : '#F35252 ') +
                         activeAnalysis.atsScore * 3.6 +
-                        'deg, #24355a 0deg)',
+                        'deg, var(--border-color) 0deg)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
                       boxShadow: activeAnalysis.atsScore >= 75 ? '0 0 25px rgba(94, 242, 213, 0.35)' : '0 0 25px rgba(247, 157, 101, 0.35)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)'
+                      border: '1px solid var(--border-color)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: 800, color: '#fff' }}>
+                    <div style={{ fontSize: '26px', fontWeight: 800, color: 'var(--text-primary)' }}>
                       {activeAnalysis.atsScore}
                     </div>
                     <div style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>
@@ -578,7 +578,7 @@ function ResumeManager({ token }) {
           ) : (
             <div className="card" style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-muted)' }}>
               <div style={{ fontSize: '40px', marginBottom: '14px' }}>📄</div>
-              <h3 style={{ color: '#fff', fontSize: '18px' }}>No Resume Selected</h3>
+              <h3 style={{ color: 'var(--text-primary)', fontSize: '18px' }}>No Resume Selected</h3>
               <p style={{ marginTop: '6px', fontSize: '14px', maxWidth: '420px', margin: '6px auto 0', lineHeight: 1.6 }}>
                 Upload your resume PDF on the left to view comprehensive ATS scoring, keyword match breakdown, and bullet rewrites.
               </p>
