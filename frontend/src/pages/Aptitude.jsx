@@ -410,14 +410,14 @@ function Aptitude({ token }) {
                           width: '32px',
                           height: '32px',
                           borderRadius: '8px',
-                          border: isSelected ? '2px solid #818cf8' : '1px solid #475569',
+                          border: isSelected ? '2px solid #60B5FF' : '1px solid #334155',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           fontSize: '13px',
                           fontWeight: 800,
-                          color: isSelected ? '#fff' : 'var(--text-secondary)',
-                          background: isSelected ? 'linear-gradient(135deg, #6366f1, #a855f7)' : 'rgba(15, 23, 42, 0.8)',
+                          color: isSelected ? '#030712' : 'var(--text-secondary)',
+                          background: isSelected ? 'linear-gradient(135deg, #60B5FF, #5EF2D5)' : 'rgba(11, 17, 32, 0.8)',
                           flexShrink: 0
                         }}
                       >
@@ -427,7 +427,7 @@ function Aptitude({ token }) {
                         {option}
                       </div>
                       {isSelected && (
-                        <div style={{ marginLeft: 'auto', color: '#818cf8', fontSize: '16px', fontWeight: 700 }}>
+                        <div style={{ marginLeft: 'auto', color: '#5EF2D5', fontSize: '16px', fontWeight: 700 }}>
                           ✓
                         </div>
                       )}
@@ -624,7 +624,7 @@ function Aptitude({ token }) {
                           border: '1px solid var(--border-color)'
                         }}
                       >
-                        <strong style={{ color: '#818cf8' }}>💡 Step-by-Step Explanation: </strong>
+                        <strong style={{ color: '#FFE588' }}>💡 Step-by-Step Explanation: </strong>
                         {item.explanation}
                       </div>
                     )}

@@ -89,7 +89,7 @@ function Login({ setToken, setUser }) {
 
         <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '13px', color: 'var(--text-secondary)' }}>
           Don't have an account?{' '}
-          <Link to="/signup" style={{ color: '#818cf8', textDecoration: 'none', fontWeight: 600 }}>
+          <Link to="/signup" style={{ color: '#60B5FF', textDecoration: 'none', fontWeight: 600 }}>
             Sign up
           </Link>
         </div>

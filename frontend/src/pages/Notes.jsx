@@ -124,7 +124,7 @@ function Notes({ token }) {
                       <h4 style={{ fontSize: '15px', color: '#fff', margin: 0 }}>{note.title}</h4>
                       <button
                         onClick={() => handleDeleteNote(note._id)}
-                        style={{ background: 'none', border: 'none', color: '#f87171', cursor: 'pointer', fontSize: '13px' }}
+                        style={{ background: 'none', border: 'none', color: '#F35252', cursor: 'pointer', fontSize: '13px' }}
                       >
                         ✕
                       </button>

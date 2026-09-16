@@ -434,7 +434,7 @@ function DsaTracker({ token }) {
                           href={problem.problemUrl}
                           target="_blank"
                           rel="noreferrer"
-                          style={{ fontSize: '12px', color: '#818cf8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
+                          style={{ fontSize: '12px', color: '#60B5FF', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
                         >
                           LeetCode / Practice ↗
                         </a>
@@ -472,16 +472,16 @@ function DsaTracker({ token }) {
                             : 'rgba(99, 102, 241, 0.12)',
                         borderColor:
                           problem.status === 'Solved'
-                            ? 'rgba(16, 185, 129, 0.3)'
+                            ? 'rgba(94, 242, 213, 0.4)'
                             : problem.status === 'Revision'
-                            ? 'rgba(245, 158, 11, 0.3)'
-                            : 'rgba(99, 102, 241, 0.3)',
+                            ? 'rgba(255, 229, 136, 0.4)'
+                            : 'rgba(96, 181, 255, 0.4)',
                         color:
                           problem.status === 'Solved'
-                            ? '#34d399'
+                            ? '#5EF2D5'
                             : problem.status === 'Revision'
-                            ? '#fbbf24'
-                            : '#818cf8'
+                            ? '#FFE588'
+                            : '#60B5FF'
                       }}
                       value={problem.status}
                       onChange={(e) => handleToggleStatus(problem, e.target.value)}

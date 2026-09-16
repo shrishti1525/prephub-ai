@@ -311,15 +311,15 @@ function ResumeManager({ token }) {
                       onClick={() => setActiveAnalysis(r)}
                       style={{
                         padding: '12px 14px',
-                        background: isSelected ? 'rgba(99, 102, 241, 0.15)' : 'var(--bg-input)',
+                        background: isSelected ? 'rgba(96, 181, 255, 0.15)' : 'var(--bg-input)',
                         borderRadius: '8px',
-                        border: isSelected ? '1.5px solid #818cf8' : '1px solid var(--border-color)',
+                        border: isSelected ? '1.5px solid #60B5FF' : '1px solid var(--border-color)',
                         cursor: 'pointer',
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         transition: 'all 0.2s',
-                        boxShadow: isSelected ? '0 0 14px rgba(99, 102, 241, 0.2)' : 'none'
+                        boxShadow: isSelected ? '0 0 14px rgba(96, 181, 255, 0.25)' : 'none'
                       }}
                     >
                       <div>

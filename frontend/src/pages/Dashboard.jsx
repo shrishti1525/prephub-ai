@@ -248,7 +248,7 @@ function Dashboard({ token }) {
                   {pieData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={entry.color || difficultyColors[entry.name] || '#6366f1'}
+                      fill={entry.color || difficultyColors[entry.name] || '#60B5FF'}
                     />
                   ))}
                 </Pie>
@@ -302,7 +302,7 @@ function Dashboard({ token }) {
                       boxShadow: '0 8px 24px rgba(0,0,0,0.5)'
                     }}
                   />
-                  <Bar dataKey="count" fill="#6366f1" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="count" fill="#60B5FF" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

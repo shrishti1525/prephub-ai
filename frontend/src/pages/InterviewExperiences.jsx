@@ -130,11 +130,11 @@ function InterviewExperiences({ token, currentUser }) {
 
   function getCompanyGradient(name = '') {
     const char = name.toUpperCase().charAt(0);
-    if (['G', 'B', 'P'].includes(char)) return 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
-    if (['A', 'O', 'Y'].includes(char)) return 'linear-gradient(135deg, #f59e0b, #d97706)';
-    if (['M', 'S', 'W'].includes(char)) return 'linear-gradient(135deg, #06b6d4, #0284c7)';
-    if (['T', 'I', 'C'].includes(char)) return 'linear-gradient(135deg, #8b5cf6, #6d28d9)';
-    return 'linear-gradient(135deg, #6366f1, #a855f7)';
+    if (['G', 'B', 'P'].includes(char)) return 'linear-gradient(135deg, #60B5FF, #3ea0ff)';
+    if (['A', 'O', 'Y'].includes(char)) return 'linear-gradient(135deg, #F79D65, #FFE588)';
+    if (['M', 'S', 'W'].includes(char)) return 'linear-gradient(135deg, #5EF2D5, #60B5FF)';
+    if (['T', 'I', 'C'].includes(char)) return 'linear-gradient(135deg, #F35252, #F79D65)';
+    return 'linear-gradient(135deg, #60B5FF, #5EF2D5)';
   }
 
   return (
@@ -333,12 +333,12 @@ function InterviewExperiences({ token, currentUser }) {
                               border: '1px solid var(--border-color)'
                             }}
                           >
-                            <div style={{ fontWeight: 700, fontSize: '14.5px', color: '#818cf8', marginBottom: '6px' }}>
+                            <div style={{ fontWeight: 700, fontSize: '14.5px', color: '#60B5FF', marginBottom: '6px' }}>
                               {round.roundName}
                             </div>
                             {round.questionsAsked && (
                               <div style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '6px', lineHeight: 1.5 }}>
-                                <strong style={{ color: '#38bdf8' }}>Questions & Problems: </strong>
+                                <strong style={{ color: '#5EF2D5' }}>Questions & Problems: </strong>
                                 {round.questionsAsked}
                               </div>
                             )}
