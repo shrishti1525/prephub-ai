@@ -21,10 +21,26 @@ function AuthCallback({ setToken, setUser }) {
         localStorage.setItem('token', token);
         if (setToken) setToken(token);
 
+        let userObj = null;
         if (userJson) {
-          const userObj = JSON.parse(decodeURIComponent(userJson));
+          userObj = JSON.parse(decodeURIComponent(userJson));
           localStorage.setItem('user', JSON.stringify(userObj));
           if (setUser) setUser(userObj);
+        }
+
+        // Broadcast to main window via BroadcastChannel & postMessage
+        try {
+          const authChannel = new BroadcastChannel('prephub_auth_channel');
+          authChannel.postMessage({ type: 'GOOGLE_AUTH_SUCCESS', token, user: userObj });
+          authChannel.close();
+        } catch (_) {}
+
+        if (window.opener && !window.opener.closed) {
+          try {
+            window.opener.postMessage({ type: 'GOOGLE_AUTH_SUCCESS', token, user: userObj }, '*');
+            window.close();
+            return;
+          } catch (_) {}
         }
 
         navigate('/dashboard', { replace: true });

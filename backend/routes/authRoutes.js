@@ -79,10 +79,20 @@ router.post("/login", async (req, res) => {
 
 const { OAuth2Client } = require("google-auth-library");
 
-function getOAuthClient(customRedirectUri) {
+function getOAuthClient(req, customRedirectUri) {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-  const callbackUrl = customRedirectUri || process.env.GOOGLE_CALLBACK_URL || "http://localhost:5000/api/auth/google/callback";
+
+  let callbackUrl = customRedirectUri;
+  if (!callbackUrl) {
+    if (req) {
+      const proto = req.headers["x-forwarded-proto"] || req.protocol || "https";
+      const host = req.headers["x-forwarded-host"] || req.get("host");
+      callbackUrl = `${proto}://${host}/api/auth/google/callback`;
+    } else {
+      callbackUrl = process.env.GOOGLE_CALLBACK_URL || "http://localhost:5000/api/auth/google/callback";
+    }
+  }
 
   if (!clientId || !clientSecret) {
     return null;
@@ -156,8 +166,8 @@ function sendAuthResponse(res, frontendUrl, isSuccess, data) {
 
 // GET /api/auth/google - Initiates Google OAuth2 Authorization Code flow
 router.get("/google", (req, res) => {
-  const frontendUrl = (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/+$/, "");
-  const client = getOAuthClient();
+  const frontendUrl = (process.env.FRONTEND_URL || "https://prephubjs.vercel.app").replace(/\/+$/, "");
+  const client = getOAuthClient(req);
 
   if (!client) {
     const errMsg = "Google OAuth is not configured on the server. Please add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to backend/.env";
@@ -188,7 +198,7 @@ router.get("/google", (req, res) => {
 
 // GET /api/auth/google/callback - Receives the authorization code from Google
 router.get("/google/callback", async (req, res) => {
-  const frontendUrl = (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/+$/, "");
+  const frontendUrl = (process.env.FRONTEND_URL || "https://prephubjs.vercel.app").replace(/\/+$/, "");
   const { code, error, state } = req.query;
 
   if (error) {
@@ -203,7 +213,7 @@ router.get("/google/callback", async (req, res) => {
     });
   }
 
-  const client = getOAuthClient();
+  const client = getOAuthClient(req);
   if (!client) {
     return sendAuthResponse(res, frontendUrl, false, {
       error: "Google OAuth is not configured on the server. Please add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to backend/.env"
@@ -317,7 +327,7 @@ router.post("/google", async (req, res) => {
       });
     }
 
-    const client = getOAuthClient(redirectUri || "postmessage");
+    const client = getOAuthClient(req, redirectUri || "postmessage");
     if (!client) {
       return res.status(503).json({
         message: "Google OAuth is not configured on the server. Please set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in backend/.env"

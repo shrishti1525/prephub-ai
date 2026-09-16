@@ -35,33 +35,68 @@ function GoogleAuthButton({ onSuccess, onError, text = 'Continue with Google', f
       return;
     }
 
+    let authChannel = null;
+    try {
+      authChannel = new BroadcastChannel('prephub_auth_channel');
+    } catch (_) {}
+
+    const cleanup = () => {
+      window.removeEventListener('message', handleMessage);
+      window.removeEventListener('storage', handleStorage);
+      clearInterval(pollTimer);
+      if (authChannel) {
+        try { authChannel.close(); } catch (_) {}
+      }
+      setLoading(false);
+    };
+
+    const handleSuccess = (token, user) => {
+      cleanup();
+      if (popup && !popup.closed) {
+        try { popup.close(); } catch (_) {}
+      }
+      if (token) {
+        localStorage.setItem('token', token);
+        if (user) localStorage.setItem('user', JSON.stringify(user));
+        if (onSuccess) onSuccess({ token, user });
+      }
+    };
+
     const handleMessage = (event) => {
       if (event.data?.type === 'GOOGLE_AUTH_SUCCESS') {
-        window.removeEventListener('message', handleMessage);
-        clearInterval(pollTimer);
-        setLoading(false);
-
-        const { token, user } = event.data;
-        if (token && user) {
-          localStorage.setItem('token', token);
-          localStorage.setItem('user', JSON.stringify(user));
-          if (onSuccess) onSuccess({ token, user });
-        }
+        handleSuccess(event.data.token, event.data.user);
       } else if (event.data?.type === 'GOOGLE_AUTH_FAILURE') {
-        window.removeEventListener('message', handleMessage);
-        clearInterval(pollTimer);
-        setLoading(false);
+        cleanup();
         if (onError) onError(event.data.error || 'Google authentication failed. Please try again.');
       }
     };
 
+    const handleStorage = (event) => {
+      if (event.key === 'token' && event.newValue) {
+        let user = null;
+        try {
+          user = JSON.parse(localStorage.getItem('user'));
+        } catch (_) {}
+        handleSuccess(event.newValue, user);
+      }
+    };
+
+    if (authChannel) {
+      authChannel.onmessage = (event) => {
+        if (event.data?.type === 'GOOGLE_AUTH_SUCCESS') {
+          handleSuccess(event.data.token, event.data.user);
+        }
+      };
+    }
+
     window.addEventListener('message', handleMessage);
+    window.addEventListener('storage', handleStorage);
 
     const pollTimer = setInterval(() => {
       if (!popup || popup.closed) {
-        clearInterval(pollTimer);
-        window.removeEventListener('message', handleMessage);
-        setLoading(false);
+        setTimeout(() => {
+          cleanup();
+        }, 500);
       }
     }, 600);
   }
