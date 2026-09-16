@@ -1,59 +1,114 @@
-import { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function Signup() {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' })
-  const [message, setMessage] = useState('')
+function Signup({ setToken, setUser }) {
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setMessage('');
+    setLoading(true);
+
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', formData)
-      setMessage('Signup successful!')
-      console.log(response.data)
+      const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      const { token, user } = response.data;
+
+      setToken(token);
+      localStorage.setItem('token', token);
+
+      if (user) {
+        if (setUser) setUser(user);
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+
+      navigate('/dashboard');
     } catch (error) {
-      setMessage('Signup failed. Check console for details.')
-      console.log(error)
+      setMessage(error.response?.data?.message || 'Signup failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <div>
-      <h1>Signup Page</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit">Sign Up</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div style={{ maxWidth: '440px', margin: '80px auto', padding: '0 20px' }}>
+      <div className="card" style={{ padding: '36px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+          <div className="logo-badge" style={{ margin: '0 auto 12px auto' }}>P</div>
+          <h2 style={{ fontSize: '24px', color: '#fff', margin: 0 }}>Create PrepHub Account</h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
+            Start your placement sprint today
+          </p>
+        </div>
+
+        {message && <div className="alert alert-error">{message}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Full Name</label>
+            <input
+              type="text"
+              required
+              name="name"
+              className="form-input"
+              placeholder="e.g. Shrishti Singh"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="form-label">Email Address</label>
+            <input
+              type="email"
+              required
+              name="email"
+              className="form-input"
+              placeholder="you@college.edu"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              required
+              name="password"
+              className="form-input"
+              placeholder="••••••••"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ width: '100%', padding: '12px', marginTop: '8px' }}
+            disabled={loading}
+          >
+            {loading ? 'Creating Account...' : 'Get Started Free'}
+          </button>
+        </form>
+
+        <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '13px', color: 'var(--text-secondary)' }}>
+          Already have an account?{' '}
+          <Link to="/login" style={{ color: '#818cf8', textDecoration: 'none', fontWeight: 600 }}>
+            Sign in
+          </Link>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;
