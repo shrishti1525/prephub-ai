@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
@@ -245,6 +246,13 @@ router.get("/google/callback", async (req, res) => {
       });
     }
 
+    if (mongoose.connection.readyState !== 1) {
+      console.error("MongoDB not connected (readyState:", mongoose.connection.readyState, ")");
+      return sendAuthResponse(res, frontendUrl, false, {
+        error: "Database connection failed. Please ensure your IP is whitelisted in MongoDB Atlas (Network Access -> Add 0.0.0.0/0)."
+      });
+    }
+
     const normalizedEmail = googleProfile.email.toLowerCase().trim();
     let user = await User.findOne({ email: normalizedEmail });
 
@@ -361,6 +369,13 @@ router.post("/google", async (req, res) => {
 
     if (!googleProfile || !googleProfile.email) {
       return res.status(400).json({ message: "Could not retrieve user details from Google token" });
+    }
+
+    if (mongoose.connection.readyState !== 1) {
+      console.error("MongoDB not connected (readyState:", mongoose.connection.readyState, ")");
+      return res.status(503).json({
+        message: "Database connection failed. Please ensure your IP is whitelisted in MongoDB Atlas (Network Access -> Add 0.0.0.0/0)."
+      });
     }
 
     const normalizedEmail = googleProfile.email.toLowerCase().trim();

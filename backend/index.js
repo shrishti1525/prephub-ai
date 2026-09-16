@@ -62,13 +62,16 @@ async function connectDatabase() {
       await seedAptitudeData();
       return;
     } catch (err) {
-      console.warn("Could not connect via MONGO_URI (possibly Atlas IP whitelist or network).");
-      console.log("Falling back to local MongoDB server on 127.0.0.1:27017...");
+      console.warn("Could not connect via MONGO_URI (possibly Atlas IP whitelist or network issue):", err.message);
+      try {
+        await mongoose.disconnect();
+      } catch (_) {}
     }
   }
 
   try {
-    await mongoose.connect(LOCAL_MONGO);
+    console.log("Falling back to local MongoDB server on 127.0.0.1:27017...");
+    await mongoose.connect(LOCAL_MONGO, { serverSelectionTimeoutMS: 3000 });
     console.log("Connected to local MongoDB (mongodb://127.0.0.1:27017/prephub) successfully");
     await seedAptitudeData();
   } catch (localErr) {
